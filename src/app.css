@@ -1,124 +1,68 @@
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+	@apply w-2;
+	@apply h-2;
+}
+
+::-webkit-scrollbar-track {
+	@apply !bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+	@apply rounded-sm !bg-muted-foreground/30;
+}
+
+html {
+	scrollbar-color: hsla(0, 0%, 100%, 0.3);
+}
+
+/* Firefox */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color#browser_compatibility */
+html {
+	scrollbar-color: rgba(0, 0, 0, 0.2) rgba(255, 255, 255, 0.05);
+}
+html.dark {
+	scrollbar-color: rgba(255, 255, 255, 0.1) rgba(0, 0, 0, 0.05);
+}
+
 html,
 body {
-	@apply p-0 m-0 overflow-hidden bg-black;
+	@apply p-0 m-0 overflow-hidden font-["Inter"];
 }
 
-blockquote,
-dl,
-dd,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-figure,
-p,
-pre {
-	margin: 0;
+@layer base {
+	:root {
+		--background: 0 0% 12%;
+		--foreground: 213 31% 91%;
+		--muted: 223 47% 11%;
+		--muted-foreground: 215.4 16.3% 56.9%;
+		--accent: 0 0% 19%;
+		--accent-foreground: 210 40% 98%;
+		--popover: 0 0% 15%;
+		--popover-foreground: 0 0% 82%;
+		--border: 0 0% 19%;
+		--input: 216 34% 17%;
+		--card: 224 71% 4%;
+		--card-foreground: 213 31% 91%;
+		--primary: 210 40% 98%;
+		--primary-foreground: 222.2 47.4% 1.2%;
+		--secondary: 222.2 47.4% 11.2%;
+		--secondary-foreground: 210 40% 98%;
+		--destructive: 359 51% 48%;
+		--destructive-foreground: 210 40% 98%;
+		--ring: 216 34% 17%;
+		--radius: 0.5rem;
+		--radius: 0.5rem;
+	}
 }
-
-.editor-wrapper {
-	@apply w-[70%] h-full mx-auto py-5;
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+		font-feature-settings: 'rlig' 1, 'calt' 1;
+	}
 }
-
-ul[data-type='taskList'] p {
-	@apply m-0;
-}
-
-ul[data-type='taskList'] li {
-	@apply flex;
-}
-
-ul[data-type='taskList'] li > label {
-	@apply flex-[0_0_auto] mr-[0.5rem] select-none;
-}
-
-ul[data-type='taskList'] li > div {
-	@apply flex-[1_1_auto];
-}
-
-ul[data-type='taskList'] li ul li,
-ol li {
-	display: list-item;
-}
-
-ul[data-type='taskList'] li ul[data-type='taskList'] > li {
-	display: flex;
-}
-
-.tiptap {
-	@apply text-white h-screen font-["Inter"];
-}
-
-.ProseMirror-focused {
-	@apply outline-none;
-}
-
-pre {
-	@apply bg-[#2e2a2a] rounded-md text-white font-["Fira_Code"] py-[0.75rem] px-[1rem];
-}
-
-pre code {
-	@apply bg-none text-inherit text-[0.8rem] p-0;
-}
-
-.hljs-comment,
-.hljs-quote {
-	color: #616161;
-}
-
-.hljs-variable,
-.hljs-template-variable,
-.hljs-attribute,
-.hljs-tag,
-.hljs-name,
-.hljs-regexp,
-.hljs-link,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class {
-	color: #f98181;
-}
-
-.hljs-number,
-.hljs-meta,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params {
-	color: #fbbc88;
-}
-
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet {
-	color: #b9f18d;
-}
-
-.hljs-title,
-.hljs-section {
-	color: #faf594;
-}
-
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #70cff8;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: 700;
-}
-
-/* input[type='checkbox'] {
-	@apply h-4 w-4 shrink-0 rounded-sm border border-white accent-transparent shadow focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:!bg-white data-[state=checked]:text-slate-500;
-} */

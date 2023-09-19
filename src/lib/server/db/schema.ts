@@ -1,5 +1,12 @@
-import type { InferSelectModel } from 'drizzle-orm';
-import { bigint, mysqlEnum, mysqlTableCreator, timestamp, varchar } from 'drizzle-orm/mysql-core';
+import { relations, type InferSelectModel } from 'drizzle-orm';
+import {
+	bigint,
+	mysqlEnum,
+	mysqlTableCreator,
+	text,
+	timestamp,
+	varchar
+} from 'drizzle-orm/mysql-core';
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
@@ -63,3 +70,27 @@ export const itemsTable = mysqlTable('item', {
 	updatedAt: timestamp('updated_at').notNull().defaultNow()
 });
 export type Item = InferSelectModel<typeof itemsTable>;
+
+export const itemsRelations = relations(itemsTable, ({ one }) => ({
+	file: one(filesTable, {
+		fields: [itemsTable.id],
+		references: [filesTable.itemId]
+	})
+}));
+
+export const filesTable = mysqlTable('file', {
+	id: varchar('id', {
+		length: 48
+	}).primaryKey(),
+	itemId: varchar('item_id', {
+		length: 48
+	}).notNull(),
+	content: text('content').notNull()
+});
+
+export const filesRelations = relations(filesTable, ({ one }) => ({
+	item: one(itemsTable, {
+		fields: [filesTable.itemId],
+		references: [itemsTable.id]
+	})
+}));

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { Blockquote } from '$lib/extensions/blockquote';
 	import { Bold } from '$lib/extensions/bold';
 	import { BulletList } from '$lib/extensions/bullet-list';
@@ -29,7 +30,12 @@
 	import ts from 'highlight.js/lib/languages/typescript';
 	import html from 'highlight.js/lib/languages/xml';
 	import { createLowlight } from 'lowlight';
+	import { CheckCircled, Reload } from 'radix-icons-svelte';
 	import { onDestroy, onMount } from 'svelte';
+	import { toast } from 'svelte-sonner';
+	import '../../tiptap.css';
+
+	export let content: string;
 
 	const lowlight = createLowlight({
 		html,
@@ -40,17 +46,40 @@
 
 	let element: Element;
 	let editor: Editor;
+	let currentContent: string = content;
+	let previousContent: string = content;
+	let intervalId: number;
+	let synced = true;
+
+	function createSyncInterval() {
+		return setInterval(() => {
+			if (currentContent !== previousContent) {
+				console.log('Attempting to save...');
+				fetch('/api/file', {
+					method: 'POST',
+					body: JSON.stringify({
+						content: currentContent,
+						itemId: $page.params.itemId
+					})
+				})
+					.then(() => {
+						previousContent = currentContent;
+						synced = true;
+					})
+					.catch((err) => {
+						console.error(err);
+						toast.error('Failed to save!');
+					});
+			}
+		}, 2000);
+	}
 
 	onMount(() => {
 		editor = new Editor({
 			element: element,
-			// parseOptions: {
-
-			// },
 			extensions: [
 				Blockquote,
 				BulletList,
-				// CodeBlock,
 				Code,
 				Document,
 				Dropcursor,
@@ -74,89 +103,47 @@
 				Bold,
 				CharacterCount,
 				Placeholder.configure({
-					// Use a placeholder:
 					placeholder: 'Write something …'
-					// Use different placeholders depending on the node type:
-					// placeholder: ({ node }) => {
-					//   if (node.type.name === 'heading') {
-					//     return 'What’s the title?'
-					//   }
-
-					//   return 'Can you add some further context?'
-					// },
 				}),
-				CodeBlockLowlight
-					// .extend({
-					// 	addNodeView() {
-					// 		return SvelteNodeViewRenderer(CodeBlockComponent);
-					// 	}
-					// })
-					.configure({ lowlight })
+				CodeBlockLowlight.configure({ lowlight })
 			],
-			content: `
-			<h1>Heading 1</h1>
-			<h2>Heading 2</h2>
-			<h3>Heading 3</h3>
-			<p></p>
-		<p></p>
-		<p></p>
-			<ul data-type="bulletList">
-		  <li data-type="listItem">A list item</li>
-		  <li data-type="listItem">And another one</li>
-		</ul>
-			
-			<ul data-type="taskList">
-          <li data-type="taskItem" data-checked="true">A list item</li>
-          <li data-type="taskItem" data-checked="false">And another one</li>
-        </ul>
-		<p></p>
-		<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://tailwindui.com/components/application-ui/forms/checkboxes">https://tailwindui.com/components/application-ui/forms/checkboxes</a></p>
-		<p></p>
-		<p></p>
-		<p></p>
-		<pre><code class="language-ts"><span class="hljs-keyword">const</span> hello = <span class="hljs-string">"This is a piece of code"</span>.
-<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(hello, <span class="hljs-string">"world"</span>);</code></pre>
-		`,
+			content,
 			onTransaction: () => {
-				// force re-render so `editor.isActive` works as expected
 				editor = editor;
 			}
 		});
+
+		editor.on('update', ({ editor }) => {
+			synced = false;
+			if (intervalId) {
+				clearInterval(intervalId);
+				intervalId = createSyncInterval();
+			}
+			currentContent = editor.getHTML();
+		});
+
+		intervalId = createSyncInterval();
 	});
 
 	onDestroy(() => {
+		if (intervalId) {
+			clearInterval(intervalId);
+		}
 		if (editor) {
 			editor.destroy();
 		}
 	});
 </script>
 
-<!-- {#if editor}
-	<button
-		on:click={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-		class:active={editor.isActive('heading', { level: 1 })}
-	>
-		H1
-	</button>
-	<button
-		on:click={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-		class:active={editor.isActive('heading', { level: 2 })}
-	>
-		H2
-	</button>
-	<button
-		on:click={() => editor.chain().focus().setParagraph().run()}
-		class:active={editor.isActive('paragraph')}
-	>
-		P
-	</button>
-{/if} -->
-
 <div bind:this={element} />
-
-<!-- <style>
-	button.active {
-		background: black;
-		color: white;
-	}
-</style> -->
+<div
+	class="fixed bottom-0 right-0 px-3 py-2 rounded-md shadow-md bg-popover flex items-center justify-center gap-2 text-xs text-popover-foreground"
+>
+	<span>{editor?.storage?.characterCount.characters() ?? 0} characters</span>
+	<span>{editor?.storage?.characterCount.words() ?? 0} words</span>
+	{#if synced}
+		<CheckCircled size={16} color="green" />
+	{:else}
+		<Reload size={16} color="pink" />
+	{/if}
+</div>
