@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { applyAction, enhance } from '$app/forms';
 	import { invalidateAll } from '$app/navigation';
+	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Tooltip from '$lib/components/ui/tooltip';
 	import { toast } from 'svelte-sonner';
 
@@ -26,7 +27,20 @@
 			}}
 		>
 			<input type="hidden" value="folder" name="type" />
-			<button disabled={loading} type="submit" class="py-2 px-1.5 rounded-md hover:bg-white/5">
+			<Button
+				size="xs"
+				variant="outline"
+				disabled={loading}
+				type="submit"
+				class="py-2 px-1.5 rounded-md md:hidden hover:bg-white/5"
+			>
+				New Folder
+			</Button>
+			<button
+				disabled={loading}
+				type="submit"
+				class="py-2 px-1.5 rounded-md hidden md:block hover:bg-white/5"
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="16"

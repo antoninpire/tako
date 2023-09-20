@@ -5,6 +5,6 @@
 </script>
 
 <Sidebar items={data.items} />
-<div class="ml-72 w-[calc(100vw-18rem)] h-full">
+<div class="md:ml-72 md:w-[calc(100vw-18rem)] md:mt-0 mt-10 w-screen h-full">
 	<slot />
 </div>
