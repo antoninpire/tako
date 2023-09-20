@@ -33,7 +33,9 @@
 		</div>
 		<div class="flex flex-col mt-4">
 			{#each items as item}
-				<TreeView isRoot {item} />
+				{#key item.id}
+					<TreeView isRoot {item} />
+				{/key}
 			{/each}
 		</div>
 	</div>
