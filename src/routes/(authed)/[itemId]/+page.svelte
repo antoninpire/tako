@@ -7,7 +7,7 @@
 
 {#key data.note.id}
 	<NoteTitle note={data.note} />
-	<div class="md:pt-6 md:px-4 pt-3 px-2.5">
+	<div class="md:pt-6 md:px-4 pt-3 px-2.5 text-sm md:text-base">
 		<TipTap content={data.note.file?.content ?? ''} />
 	</div>
 {/key}

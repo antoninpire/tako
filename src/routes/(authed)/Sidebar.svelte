@@ -38,7 +38,9 @@
 	</div>
 </aside>
 
-<header class="md:hidden fixed top-0 left-0 w-screen h-10 px-4 flex items-center bg-popover">
+<header
+	class="md:hidden fixed top-0 left-0 w-screen h-12 px-4 flex items-center bg-popover justify-between"
+>
 	<Button
 		on:click={() => {
 			sheetOpen = true;
@@ -48,8 +50,8 @@
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			width="20"
-			height="20"
+			width="24"
+			height="24"
 			viewBox="0 0 24 24"
 			fill="none"
 			stroke="currentColor"
@@ -63,8 +65,22 @@
 				y1="18"
 				y2="18"
 			/></svg
-		></Button
-	>
+		>
+	</Button>
+	<Button variant="ghost" size="sm">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			class="lucide lucide-search"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg
+		>
+	</Button>
 </header>
 
 <Sheet.Root bind:open={sheetOpen}>
