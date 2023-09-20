@@ -5,12 +5,14 @@
 	export let data;
 </script>
 
-{#key data.note.id}
-	<NoteTitle note={data.note} />
-	<div class="md:pt-6 md:px-4 pt-3 px-2.5 text-sm md:text-base">
-		<TipTap content={data.note.file?.content ?? ''} />
-	</div>
-{/key}
+<div class="overflow-y-scroll h-full">
+	{#key data.note.id}
+		<NoteTitle note={data.note} />
+		<div class="md:pt-6 md:px-5 xl:px-6 pt-3 px-4 text-sm md:text-base">
+			<TipTap content={data.note.file?.content ?? ''} />
+		</div>
+	{/key}
+</div>
 
 <svelte:head>
 	<title>Vault</title>

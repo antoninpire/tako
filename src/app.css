@@ -29,7 +29,7 @@ html.dark {
 
 html,
 body {
-	@apply p-0 m-0 overflow-hidden font-["Inter"];
+	@apply p-0 m-0 overflow-hidden font-["Inter"] h-full;
 }
 
 @layer base {

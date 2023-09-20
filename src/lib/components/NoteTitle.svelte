@@ -5,15 +5,19 @@
 
 	export let note: Item;
 
-	let name = note.name;
+	let name: string = note.name;
 
-	async function onBlur() {
-		if (name === note.name) return;
+	$: {
+		name = note.name;
+	}
+
+	async function onBlur(current?: string) {
+		if (name === note.name && (!current || current === note.name)) return;
 		fetch('/api/item', {
 			method: 'PUT',
 			body: JSON.stringify({
 				itemId: note.id,
-				name
+				name: current ? current : name
 			})
 		})
 			.then(() => {
@@ -31,6 +35,14 @@
 	class="w-full py-6 px-4 text-3xl font-semibold bg-transparent border-b border-neutral-700 focus:outline-none"
 	placeholder="Title"
 	maxlength="75"
-	bind:value={name}
-	on:blur={onBlur}
+	on:change={(event) => {
+		// @ts-ignore
+		name = event.target?.value ?? '';
+	}}
+	value={name}
+	on:blur={() => onBlur()}
+	on:keydown={(event) => {
+		// @ts-ignore
+		if (event.key === 'Enter') onBlur(event.target?.value);
+	}}
 />

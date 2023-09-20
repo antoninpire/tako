@@ -1,14 +1,12 @@
 <script lang="ts">
-	import { applyAction, enhance } from '$app/forms';
+	import { enhance } from '$app/forms';
 	import { goto, invalidateAll } from '$app/navigation';
 	import { page } from '$app/stores';
-	import * as AlertDialog from '$lib/components/ui/alert-dialog';
-	import Button from '$lib/components/ui/button/button.svelte';
 	import * as ContextMenu from '$lib/components/ui/context-menu';
-	import * as Dialog from '$lib/components/ui/dialog';
-	import Input from '$lib/components/ui/input/input.svelte';
-	import Label from '$lib/components/ui/label/label.svelte';
 	import type { Tree } from '$lib/create-item-tree-from-list';
+	import { alertDialogDeleteItemId } from '$lib/stores/alert-dialog';
+	import { dialogRenameItem } from '$lib/stores/dialog';
+	import { sortOrder } from '$lib/stores/sort';
 	import { ChevronDown, ChevronRight, Pencil2, Trash } from 'radix-icons-svelte';
 	import { toast } from 'svelte-sonner';
 
@@ -16,33 +14,25 @@
 	export let isRoot = false;
 
 	let expanded = false;
-	let deleting = false;
 	let creating = false;
-	let renaming = false;
-	let name = item.name;
 
 	$: active = item.id === $page.params.itemId;
 
-	async function renameItem() {
-		if (name === item.name) return;
-		fetch('/api/item', {
-			method: 'PUT',
-			body: JSON.stringify({
-				itemId: item.id,
-				name
-			})
-		})
-			.then(() => {
-				invalidateAll();
-			})
-			.catch((err) => {
-				console.error('error', err);
-				toast.error('Failed to update item name');
-			})
-			.finally(() => {
-				renaming = false;
-			});
-	}
+	$: sortedChildren =
+		item.children?.sort((a, b) => {
+			if (a.type === 'folder' && b.type === 'file') return -1;
+			if (a.type === 'file' && b.type === 'folder') return 1;
+			if ($sortOrder === 'name_desc') return b.name.localeCompare(a.name);
+			else if ($sortOrder === 'created_at_asc')
+				return a.createdAt.getTime() - b.createdAt.getTime();
+			else if ($sortOrder === 'created_at_desc')
+				return b.createdAt.getTime() - a.createdAt.getTime();
+			else if ($sortOrder === 'updated_at_asc')
+				return a.updatedAt.getTime() - b.updatedAt.getTime();
+			else if ($sortOrder === 'updated_at_desc')
+				return b.updatedAt.getTime() - a.updatedAt.getTime();
+			return a.name.localeCompare(b.name);
+		}) ?? [];
 </script>
 
 <ul
@@ -174,7 +164,10 @@
 				{/if}
 				<button
 					on:click={() => {
-						renaming = true;
+						dialogRenameItem.set({
+							name: item.name,
+							id: item.id
+						});
 					}}
 					class="w-full"
 				>
@@ -185,7 +178,16 @@
 				</button>
 				<button
 					on:click={() => {
-						deleting = true;
+						if (item.type === 'folder') alertDialogDeleteItemId.set(item.id);
+						else {
+							const input = document.getElementById('delete-item-id-input');
+							if (input) {
+								// @ts-ignore
+								input.value = item.id;
+								const button = document.getElementById(`delete-item-submit-button`);
+								if (button) button?.click();
+							}
+						}
 					}}
 					class="w-full"
 				>
@@ -198,7 +200,7 @@
 		</ContextMenu.Root>
 
 		{#if expanded && item.children?.length}
-			{#each item.children as child}
+			{#each sortedChildren as child}
 				{#key child.id}
 					<svelte:self item={child} />
 				{/key}
@@ -206,56 +208,3 @@
 		{/if}
 	</li>
 </ul>
-
-<AlertDialog.Root bind:open={deleting}>
-	<AlertDialog.Content>
-		<AlertDialog.Header>
-			<AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
-			<AlertDialog.Description>
-				This action cannot be undone. This will permanently delete the item and all the nested
-				items.
-			</AlertDialog.Description>
-		</AlertDialog.Header>
-		<AlertDialog.Footer>
-			<AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
-			<form
-				method="POST"
-				action="/?/delete-item"
-				use:enhance={() => {
-					deleting = true;
-					return async ({ result }) => {
-						if (result.type === 'success') {
-							if (item.id === $page.params.itemId) goto('/');
-						} else if (result.type === 'error') {
-							console.error(result.error);
-							toast.error('Error while deleting the item !');
-						}
-						invalidateAll();
-						deleting = false;
-						applyAction(result);
-					};
-				}}
-			>
-				<input type="hidden" value={item.id} name="itemId" />
-				<AlertDialog.Action type="submit">Continue</AlertDialog.Action>
-			</form>
-		</AlertDialog.Footer>
-	</AlertDialog.Content>
-</AlertDialog.Root>
-
-<Dialog.Root bind:open={renaming}>
-	<Dialog.Content class="sm:max-w-[425px]">
-		<Dialog.Header>
-			<Dialog.Title>Rename Item</Dialog.Title>
-		</Dialog.Header>
-		<div class="grid gap-4 py-4">
-			<div class="grid grid-cols-4 items-center gap-4">
-				<Label class="text-right">Name</Label>
-				<Input bind:value={name} id="name" class="col-span-3" />
-			</div>
-		</div>
-		<Dialog.Footer>
-			<Button on:click={renameItem}>Save changes</Button>
-		</Dialog.Footer>
-	</Dialog.Content>
-</Dialog.Root>

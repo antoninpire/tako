@@ -39,6 +39,7 @@
 				disabled={loading}
 				type="submit"
 				class="py-2 px-1.5 rounded-md hover:bg-white/5 hidden md:block"
+				id="create-new-note-form-submit"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

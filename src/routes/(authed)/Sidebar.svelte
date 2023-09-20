@@ -1,8 +1,15 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 	import { afterNavigate } from '$app/navigation';
+	import DeleteItemAlertDialog from '$lib/components/DeleteItemAlertDialog.svelte';
+	import RenameItemDialog from '$lib/components/RenameItemDialog.svelte';
+	import SearchCommand from '$lib/components/SearchCommand.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Sheet from '$lib/components/ui/sheet';
 	import type { Item } from '$lib/server/db/schema';
+	import { sortOrder } from '$lib/stores/sort';
+	import { onMount } from 'svelte';
+	import { searchDialogOpen } from '../../lib/stores/search';
 	import SidebarNewFolderButton from './SidebarNewFolderButton.svelte';
 	import SidebarNewNoteButton from './SidebarNewNoteButton.svelte';
 	import SidebarSearchButton from './SidebarSearchButton.svelte';
@@ -14,6 +21,34 @@
 
 	afterNavigate(() => {
 		sheetOpen = false;
+		searchDialogOpen.set(false);
+	});
+
+	onMount(() => {
+		function handleKeyDown(event: KeyboardEvent) {
+			if ((event.ctrlKey || event.metaKey) && event.key === 'j') {
+				event.preventDefault();
+				const button = document.getElementById('create-new-note-form-submit');
+				if (button) (button as HTMLButtonElement).click();
+			}
+		}
+
+		window.addEventListener('keydown', handleKeyDown);
+
+		return () => {
+			window.removeEventListener('keydown', handleKeyDown);
+		};
+	});
+
+	$: sortedItems = items.sort((a, b) => {
+		if (a.type === 'folder' && b.type === 'file') return -1;
+		if (a.type === 'file' && b.type === 'folder') return 1;
+		if ($sortOrder === 'name_desc') return b.name.localeCompare(a.name);
+		else if ($sortOrder === 'created_at_asc') return a.createdAt.getTime() - b.createdAt.getTime();
+		else if ($sortOrder === 'created_at_desc') return b.createdAt.getTime() - a.createdAt.getTime();
+		else if ($sortOrder === 'updated_at_asc') return a.updatedAt.getTime() - b.updatedAt.getTime();
+		else if ($sortOrder === 'updated_at_desc') return b.updatedAt.getTime() - a.updatedAt.getTime();
+		return a.name.localeCompare(b.name);
 	});
 </script>
 
@@ -29,7 +64,7 @@
 			</div>
 		</div>
 		<div class="flex flex-col mt-4">
-			{#each items as item}
+			{#each sortedItems as item}
 				{#key item.id}
 					<TreeView isRoot {item} />
 				{/key}
@@ -67,7 +102,13 @@
 			/></svg
 		>
 	</Button>
-	<Button variant="ghost" size="sm">
+	<Button
+		variant="ghost"
+		size="sm"
+		on:click={() => {
+			searchDialogOpen.set(true);
+		}}
+	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width="24"
@@ -94,7 +135,7 @@
 				</div>
 			</div>
 			<div class="flex flex-col mt-4">
-				{#each items as item}
+				{#each sortedItems as item}
 					{#key item.id}
 						<TreeView isRoot {item} />
 					{/key}
@@ -103,3 +144,12 @@
 		</div>
 	</Sheet.Content>
 </Sheet.Root>
+
+<SearchCommand {items} />
+<DeleteItemAlertDialog />
+<RenameItemDialog />
+
+<form method="POST" action="/?/delete-item" class="hidden" use:enhance>
+	<input type="hidden" name="itemId" id="delete-item-id-input" />
+	<button type="submit" id="delete-item-submit-button" />
+</form>
