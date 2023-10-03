@@ -1,6 +1,7 @@
 import { relations, type InferSelectModel } from 'drizzle-orm';
 import {
 	bigint,
+	index,
 	mysqlEnum,
 	mysqlTableCreator,
 	text,
@@ -52,23 +53,34 @@ export const session = mysqlTable('user_session', {
 	email: varchar('email', { length: 128 })
 });
 
-export const itemsTable = mysqlTable('item', {
-	id: varchar('id', {
-		length: 48
-	}).primaryKey(),
-	userId: varchar('user_id', {
-		length: 15
-	}).notNull(),
-	name: varchar('name', {
-		length: 75
-	}).notNull(),
-	type: mysqlEnum('type', ['folder', 'file']).notNull(),
-	parentId: varchar('parent_id', {
-		length: 48
-	}),
-	createdAt: timestamp('created_at').notNull().defaultNow(),
-	updatedAt: timestamp('updated_at').notNull().defaultNow()
-});
+export const itemsTable = mysqlTable(
+	'item',
+	{
+		id: varchar('id', {
+			length: 48
+		}).primaryKey(),
+		userId: varchar('user_id', {
+			length: 15
+		}).notNull(),
+		name: varchar('name', {
+			length: 75
+		}).notNull(),
+		type: mysqlEnum('type', ['folder', 'file']).notNull(),
+		parentId: varchar('parent_id', {
+			length: 48
+		}),
+		createdAt: timestamp('created_at')
+			.notNull()
+			.$defaultFn(() => new Date()),
+		updatedAt: timestamp('updated_at')
+			.notNull()
+			.$defaultFn(() => new Date())
+	},
+	(table) => ({
+		userIdx: index('user_idx').on(table.userId),
+		parentIdx: index('parent_idx').on(table.parentId)
+	})
+);
 export type Item = InferSelectModel<typeof itemsTable>;
 
 export const itemsRelations = relations(itemsTable, ({ one }) => ({
@@ -78,15 +90,21 @@ export const itemsRelations = relations(itemsTable, ({ one }) => ({
 	})
 }));
 
-export const filesTable = mysqlTable('file', {
-	id: varchar('id', {
-		length: 48
-	}).primaryKey(),
-	itemId: varchar('item_id', {
-		length: 48
-	}).notNull(),
-	content: text('content').notNull()
-});
+export const filesTable = mysqlTable(
+	'file',
+	{
+		id: varchar('id', {
+			length: 48
+		}).primaryKey(),
+		itemId: varchar('item_id', {
+			length: 48
+		}).notNull(),
+		content: text('content').notNull()
+	},
+	(table) => ({
+		itemIdx: index('item_idx').on(table.itemId)
+	})
+);
 
 export const filesRelations = relations(filesTable, ({ one }) => ({
 	item: one(itemsTable, {
