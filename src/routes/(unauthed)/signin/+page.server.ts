@@ -25,8 +25,6 @@ export const actions: Actions = {
 			});
 		}
 		try {
-			// find user by key
-			// and validate password
 			const key = await auth.useKey('email', email.toLowerCase(), password);
 			const session = await auth.createSession({
 				userId: key.userId,
@@ -48,8 +46,6 @@ export const actions: Actions = {
 				message: 'An unknown error occurred'
 			});
 		}
-		// redirect to
-		// make sure you don't throw inside a try/catch block!
 		throw redirect(302, '/');
 	}
 };

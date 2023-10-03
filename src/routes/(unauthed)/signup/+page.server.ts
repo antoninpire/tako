@@ -1,5 +1,7 @@
 import { auth } from '$lib/server/lucia';
+import { DatabaseError } from '@planetscale/database';
 import { fail, redirect, type Actions, type ServerLoad } from '@sveltejs/kit';
+import { z } from 'zod';
 
 export const load: ServerLoad = async ({ locals }) => {
 	const session = await locals.auth.validate();
@@ -7,55 +9,56 @@ export const load: ServerLoad = async ({ locals }) => {
 	return {};
 };
 
+const schema = z.object({
+	email: z.string().email(),
+	password: z
+		.string()
+		.min(6, 'Password must be at least 6 characters long')
+		.max(255, 'Password must be at most 255 characters long')
+});
+
 export const actions: Actions = {
 	default: async ({ request, locals }) => {
 		const formData = await request.formData();
 		const email = formData.get('email');
 		const password = formData.get('password');
-		// basic check
-		if (typeof email !== 'string' || email.length < 4 || email.length > 31) {
+
+		const body = { email, password };
+
+		const parsedBody = schema.safeParse(body);
+
+		if (!parsedBody.success)
 			return fail(400, {
-				message: 'Invalid email'
+				message: parsedBody.error.errors[0].message ?? 'Unknown error'
 			});
-		}
-		if (typeof password !== 'string' || password.length < 6 || password.length > 255) {
-			return fail(400, {
-				message: 'Invalid password'
-			});
-		}
+
 		try {
 			const user = await auth.createUser({
 				key: {
-					providerId: 'email', // auth method
-					providerUserId: email.toLowerCase(), // unique id when using "email" auth method
-					password // hashed by Lucia
+					providerId: 'email',
+					providerUserId: parsedBody.data.email.toLowerCase(),
+					password: parsedBody.data.password
 				},
 				attributes: {
-					email
+					email: parsedBody.data.email
 				}
 			});
 			const session = await auth.createSession({
 				userId: user.userId,
 				attributes: {}
 			});
-			locals.auth.setSession(session); // set session cookie
+			locals.auth.setSession(session);
 		} catch (e) {
-			// this part depends on the database you're using
-			// check for unique constraint error in user table
-			// if (
-			// 	e instanceof SomeDatabaseError &&
-			// 	e.message === USER_TABLE_UNIQUE_CONSTRAINT_ERROR
-			// ) {
-			// 	return fail(400, {
-			// 		message: "email already taken"
-			// 	});
-			// }
+			if (e instanceof DatabaseError) {
+				return fail(403, {
+					message: 'Email already in use'
+				});
+			}
+
 			return fail(500, {
 				message: 'An unknown error occurred'
 			});
 		}
-		// redirect to
-		// make sure you don't throw inside a try/catch block!
 		throw redirect(302, '/');
 	}
 };

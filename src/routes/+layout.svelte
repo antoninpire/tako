@@ -5,5 +5,5 @@
 	import '../app.css';
 </script>
 
-<Toaster />
+<Toaster richColors />
 <slot />
