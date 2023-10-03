@@ -6832,10 +6832,10 @@ var init_index3 = __esm({
   }
 });
 
-// node_modules/.pnpm/@lucia-auth+adapter-mysql@2.0.0_@planetscale+database@1.11.0_lucia@2.6.0/node_modules/@lucia-auth/adapter-mysql/dist/utils.js
+// node_modules/.pnpm/@lucia-auth+adapter-mysql@2.1.0_@planetscale+database@1.11.0_lucia@2.7.1/node_modules/@lucia-auth/adapter-mysql/dist/utils.js
 var createPreparedStatementHelper, ESCAPE_CHAR, escapeName, helper, getSetArgs;
 var init_utils = __esm({
-  "node_modules/.pnpm/@lucia-auth+adapter-mysql@2.0.0_@planetscale+database@1.11.0_lucia@2.6.0/node_modules/@lucia-auth/adapter-mysql/dist/utils.js"() {
+  "node_modules/.pnpm/@lucia-auth+adapter-mysql@2.1.0_@planetscale+database@1.11.0_lucia@2.7.1/node_modules/@lucia-auth/adapter-mysql/dist/utils.js"() {
     createPreparedStatementHelper = (placeholder2) => {
       const helper2 = (values) => {
         const keys2 = Object.keys(values);
@@ -6858,17 +6858,17 @@ var init_utils = __esm({
   }
 });
 
-// node_modules/.pnpm/@lucia-auth+adapter-mysql@2.0.0_@planetscale+database@1.11.0_lucia@2.6.0/node_modules/@lucia-auth/adapter-mysql/dist/drivers/mysql2.js
+// node_modules/.pnpm/@lucia-auth+adapter-mysql@2.1.0_@planetscale+database@1.11.0_lucia@2.7.1/node_modules/@lucia-auth/adapter-mysql/dist/drivers/mysql2.js
 var init_mysql2 = __esm({
-  "node_modules/.pnpm/@lucia-auth+adapter-mysql@2.0.0_@planetscale+database@1.11.0_lucia@2.6.0/node_modules/@lucia-auth/adapter-mysql/dist/drivers/mysql2.js"() {
+  "node_modules/.pnpm/@lucia-auth+adapter-mysql@2.1.0_@planetscale+database@1.11.0_lucia@2.7.1/node_modules/@lucia-auth/adapter-mysql/dist/drivers/mysql2.js"() {
     init_utils();
   }
 });
 
-// node_modules/.pnpm/@lucia-auth+adapter-mysql@2.0.0_@planetscale+database@1.11.0_lucia@2.6.0/node_modules/@lucia-auth/adapter-mysql/dist/drivers/planetscale.js
+// node_modules/.pnpm/@lucia-auth+adapter-mysql@2.1.0_@planetscale+database@1.11.0_lucia@2.7.1/node_modules/@lucia-auth/adapter-mysql/dist/drivers/planetscale.js
 var planetscaleAdapter, get, getAll, transformPlanetscaleSession;
 var init_planetscale = __esm({
-  "node_modules/.pnpm/@lucia-auth+adapter-mysql@2.0.0_@planetscale+database@1.11.0_lucia@2.6.0/node_modules/@lucia-auth/adapter-mysql/dist/drivers/planetscale.js"() {
+  "node_modules/.pnpm/@lucia-auth+adapter-mysql@2.1.0_@planetscale+database@1.11.0_lucia@2.7.1/node_modules/@lucia-auth/adapter-mysql/dist/drivers/planetscale.js"() {
     init_utils();
     planetscaleAdapter = (connection2, tables) => {
       const ESCAPED_USER_TABLE_NAME = escapeName(tables.user);
@@ -7013,20 +7013,16 @@ var init_planetscale = __esm({
   }
 });
 
-// node_modules/.pnpm/@lucia-auth+adapter-mysql@2.0.0_@planetscale+database@1.11.0_lucia@2.6.0/node_modules/@lucia-auth/adapter-mysql/dist/index.js
+// node_modules/.pnpm/@lucia-auth+adapter-mysql@2.1.0_@planetscale+database@1.11.0_lucia@2.7.1/node_modules/@lucia-auth/adapter-mysql/dist/index.js
 var init_dist2 = __esm({
-  "node_modules/.pnpm/@lucia-auth+adapter-mysql@2.0.0_@planetscale+database@1.11.0_lucia@2.6.0/node_modules/@lucia-auth/adapter-mysql/dist/index.js"() {
+  "node_modules/.pnpm/@lucia-auth+adapter-mysql@2.1.0_@planetscale+database@1.11.0_lucia@2.7.1/node_modules/@lucia-auth/adapter-mysql/dist/index.js"() {
     init_mysql2();
     init_planetscale();
   }
 });
 
 // .svelte-kit/output/server/chunks/lucia.js
-function checkOpts(defaults3, opts) {
-  const merged = Object.assign(defaults3, opts);
-  return merged;
-}
-var parseCookie, serializeCookie, tryDecode, DEFAULT_SESSION_COOKIE_NAME, defaultSessionCookieAttributes, createSessionCookie, Cookie, logError, LuciaError, pbkdf2, u32, nextTick, asyncLoop, rotl, XorAndSalsa, BlockMix, scryptInit, scrypt, getRandomValues, DEFAULT_ALPHABET, generateRandomString, generateScryptHash, hashWithScrypt, validateScryptHash, constantTimeEqual, convertUint8ArrayToHex, isWithinExpiration, isValidDatabaseSession, DEBUG_GLOBAL, ESCAPE, DEFAULT_TEXT_FORMAT, DEFAULT_FG_BG, RED_CODE, LUCIA_COLOR_CODE, WHITE_CODE, GREEN_CODE, CYAN_CODE, YELLOW_CODE, PURPLE_CODE, BLUE_CODE, globalContext, format2, bgFormat, fgFormat, bg, fg, bold, dim, isDebugModeEnabled, linebreak, createCategory, enableDebugMode, disableDebugMode, debug, log, createHeadersFromObject, isAllowedOrigin, getBaseDomain, safeParseUrl, AuthRequest, isValidRequestOrigin, transformRequestContext, sveltekit, lucia$1, createAdapter, createKeyId, lucia, validateConfiguration, Auth, auth;
+var parseCookie, serializeCookie, tryDecode, DEFAULT_SESSION_COOKIE_NAME, defaultSessionCookieAttributes, createSessionCookie, Cookie, logError, LuciaError, pbkdf2, scrypt, rotl, XorAndSalsa, BlockMix, u32, getRandomValues, DEFAULT_ALPHABET, generateRandomString, generateScryptHash, hashWithScrypt, validateScryptHash, constantTimeEqual, convertUint8ArrayToHex, isWithinExpiration, isValidDatabaseSession, DEBUG_GLOBAL, ESCAPE, DEFAULT_TEXT_FORMAT, DEFAULT_FG_BG, RED_CODE, LUCIA_COLOR_CODE, WHITE_CODE, GREEN_CODE, CYAN_CODE, YELLOW_CODE, PURPLE_CODE, BLUE_CODE, globalContext, format2, bgFormat, fgFormat, bg, fg, bold, dim, isDebugModeEnabled, linebreak, createCategory, enableDebugMode, disableDebugMode, debug, log, createHeadersFromObject, isAllowedOrigin, getBaseDomain, safeParseUrl, AuthRequest, transformRequestContext, sveltekit, lucia$1, createAdapter, createKeyId, lucia, validateConfiguration, Auth, auth;
 var init_lucia = __esm({
   ".svelte-kit/output/server/chunks/lucia.js"() {
     init_index3();
@@ -7186,19 +7182,49 @@ var init_lucia = __esm({
       }, pwKey, options2.dkLen * 8);
       return new Uint8Array(keyBuffer);
     };
-    u32 = (arr) => new Uint32Array(arr.buffer, arr.byteOffset, Math.floor(arr.byteLength / 4));
-    nextTick = async () => {
-    };
-    asyncLoop = async (iters, tick2, cb) => {
-      let ts2 = Date.now();
-      for (let i2 = 0; i2 < iters; i2++) {
-        cb(i2);
-        const diff = Date.now() - ts2;
-        if (diff >= 0 && diff < tick2)
-          continue;
-        await nextTick();
-        ts2 += diff;
+    scrypt = async (password, salt, options2) => {
+      const { N, r: r2, p: p2 } = options2;
+      const dkLen = options2.dkLen ?? 32;
+      const maxmem = 1024 ** 3 + 1024;
+      const blockSize = 128 * r2;
+      const blockSize32 = blockSize / 4;
+      if (N <= 1 || (N & N - 1) !== 0 || N >= 2 ** (blockSize / 8) || N > 2 ** 32) {
+        throw new Error("Scrypt: N must be larger than 1, a power of 2, less than 2^(128 * r / 8) and less than 2^32");
       }
+      if (p2 < 0 || p2 > (2 ** 32 - 1) * 32 / blockSize) {
+        throw new Error("Scrypt: p must be a positive integer less than or equal to ((2^32 - 1) * 32) / (128 * r)");
+      }
+      if (dkLen < 0 || dkLen > (2 ** 32 - 1) * 32) {
+        throw new Error("Scrypt: dkLen should be positive integer less than or equal to (2^32 - 1) * 32");
+      }
+      const memUsed = blockSize * (N + p2);
+      if (memUsed > maxmem) {
+        throw new Error(`Scrypt: parameters too large, ${memUsed} (128 * r * (N + p)) > ${maxmem} (maxmem)`);
+      }
+      const B2 = await pbkdf2(password, salt, { c: 1, dkLen: blockSize * p2 });
+      const B32 = u32(B2);
+      const V = u32(new Uint8Array(blockSize * N));
+      const tmp = u32(new Uint8Array(blockSize));
+      for (let pi = 0; pi < p2; pi++) {
+        const Pi = blockSize32 * pi;
+        for (let i2 = 0; i2 < blockSize32; i2++)
+          V[i2] = B32[Pi + i2];
+        for (let i2 = 0, pos = 0; i2 < N - 1; i2++) {
+          BlockMix(V, pos, V, pos += blockSize32, r2);
+        }
+        BlockMix(V, (N - 1) * blockSize32, B32, Pi, r2);
+        for (let i2 = 0; i2 < N; i2++) {
+          const j2 = B32[Pi + blockSize32 - 16] % N;
+          for (let k = 0; k < blockSize32; k++)
+            tmp[k] = B32[Pi + k] ^ V[j2 * blockSize32 + k];
+          BlockMix(tmp, 0, B32, Pi, r2);
+        }
+      }
+      const res = await pbkdf2(password, B2, { c: 1, dkLen });
+      B2.fill(0);
+      V.fill(0);
+      tmp.fill(0);
+      return res;
     };
     rotl = (a2, b) => a2 << b | a2 >>> 32 - b;
     XorAndSalsa = (prev, pi, input, ii, out, oi) => {
@@ -7274,74 +7300,8 @@ var init_lucia = __esm({
         XorAndSalsa(out, head, input, ii += 16, out, tail);
       }
     };
-    scryptInit = async (password, salt, _opts) => {
-      const opts = checkOpts({
-        dkLen: 32,
-        asyncTick: 10,
-        maxmem: 1024 ** 3 + 1024
-      }, _opts);
-      const { N, r: r2, p: p2, dkLen, asyncTick, maxmem, onProgress } = opts;
-      if (onProgress !== void 0 && typeof onProgress !== "function")
-        throw new Error("progressCb should be function");
-      const blockSize = 128 * r2;
-      const blockSize32 = blockSize / 4;
-      if (N <= 1 || (N & N - 1) !== 0 || N >= 2 ** (blockSize / 8) || N > 2 ** 32) {
-        throw new Error("Scrypt: N must be larger than 1, a power of 2, less than 2^(128 * r / 8) and less than 2^32");
-      }
-      if (p2 < 0 || p2 > (2 ** 32 - 1) * 32 / blockSize) {
-        throw new Error("Scrypt: p must be a positive integer less than or equal to ((2^32 - 1) * 32) / (128 * r)");
-      }
-      if (dkLen < 0 || dkLen > (2 ** 32 - 1) * 32) {
-        throw new Error("Scrypt: dkLen should be positive integer less than or equal to (2^32 - 1) * 32");
-      }
-      const memUsed = blockSize * (N + p2);
-      if (memUsed > maxmem) {
-        throw new Error(`Scrypt: parameters too large, ${memUsed} (128 * r * (N + p)) > ${maxmem} (maxmem)`);
-      }
-      const B2 = await pbkdf2(password, salt, { c: 1, dkLen: blockSize * p2 });
-      const B32 = u32(B2);
-      const V = u32(new Uint8Array(blockSize * N));
-      const tmp = u32(new Uint8Array(blockSize));
-      let blockMixCb = () => {
-      };
-      if (onProgress) {
-        const totalBlockMix = 2 * N * p2;
-        const callbackPer = Math.max(Math.floor(totalBlockMix / 1e4), 1);
-        let blockMixCnt = 0;
-        blockMixCb = () => {
-          blockMixCnt++;
-          if (onProgress && (!(blockMixCnt % callbackPer) || blockMixCnt === totalBlockMix))
-            onProgress(blockMixCnt / totalBlockMix);
-        };
-      }
-      return { N, r: r2, p: p2, dkLen, blockSize32, V, B32, B: B2, tmp, blockMixCb, asyncTick };
-    };
-    scrypt = async (password, salt, opts) => {
-      const { N, r: r2, p: p2, dkLen, blockSize32, V, B32, B: B2, tmp, blockMixCb, asyncTick } = await scryptInit(password, salt, opts);
-      for (let pi = 0; pi < p2; pi++) {
-        const Pi = blockSize32 * pi;
-        for (let i2 = 0; i2 < blockSize32; i2++)
-          V[i2] = B32[Pi + i2];
-        let pos = 0;
-        await asyncLoop(N - 1, asyncTick, (i2) => {
-          BlockMix(V, pos, V, pos += blockSize32, r2);
-          blockMixCb();
-        });
-        BlockMix(V, (N - 1) * blockSize32, B32, Pi, r2);
-        blockMixCb();
-        await asyncLoop(N, asyncTick, (i2) => {
-          const j2 = B32[Pi + blockSize32 - 16] % N;
-          for (let k = 0; k < blockSize32; k++)
-            tmp[k] = B32[Pi + k] ^ V[j2 * blockSize32 + k];
-          BlockMix(tmp, 0, B32, Pi, r2);
-          blockMixCb();
-        });
-      }
-      const res = await pbkdf2(password, B2, { c: 1, dkLen });
-      B2.fill(0);
-      V.fill(0);
-      tmp.fill(0);
-      return res;
+    u32 = (arr) => {
+      return new Uint32Array(arr.buffer, arr.byteOffset, Math.floor(arr.byteLength / 4));
     };
     getRandomValues = (bytes2) => {
       return crypto.getRandomValues(new Uint8Array(bytes2));
@@ -7620,7 +7580,7 @@ var init_lucia = __esm({
             debug.request.info("Using cached result for session validation");
             return this.validatePromise;
           }
-          this.validatePromise = new Promise(async (resolve) => {
+          this.validatePromise = new Promise(async (resolve, reject) => {
             if (!this.storedSessionId)
               return resolve(null);
             try {
@@ -7634,7 +7594,7 @@ var init_lucia = __esm({
                 this.maybeSetSession(null);
                 return resolve(null);
               }
-              throw e;
+              return reject(e);
             }
           });
           return await this.validatePromise;
@@ -7644,7 +7604,7 @@ var init_lucia = __esm({
             debug.request.info("Using cached result for bearer token validation");
             return this.validatePromise;
           }
-          this.validatePromise = new Promise(async (resolve) => {
+          this.validatePromise = new Promise(async (resolve, reject) => {
             if (!this.bearerToken)
               return resolve(null);
             try {
@@ -7654,50 +7614,56 @@ var init_lucia = __esm({
               if (e instanceof LuciaError) {
                 return resolve(null);
               }
-              throw e;
+              return reject(e);
             }
           });
           return await this.validatePromise;
+        });
+        __publicField(this, "isValidRequestOrigin", (config) => {
+          const request = this.requestContext.request;
+          const whitelist = ["GET", "HEAD", "OPTIONS", "TRACE"];
+          if (whitelist.some((val) => val === request.method.toUpperCase())) {
+            return true;
+          }
+          const requestOrigin = request.headers.get("Origin");
+          if (!requestOrigin)
+            return false;
+          if (!requestOrigin) {
+            debug.request.fail("No request origin available");
+            return false;
+          }
+          let host = null;
+          if (config.host !== void 0) {
+            host = config.host ?? null;
+          } else if (request.url !== null && request.url !== void 0) {
+            host = safeParseUrl(request.url)?.host ?? null;
+          } else {
+            host = request.headers.get(config.hostHeader ?? "Host");
+          }
+          debug.request.info("Host", host ?? "(Host unknown)");
+          if (host !== null && isAllowedOrigin(requestOrigin, host, config.allowedSubDomains ?? [])) {
+            debug.request.info("Valid request origin", requestOrigin);
+            return true;
+          }
+          debug.request.info("Invalid request origin", requestOrigin);
+          return false;
         });
         debug.request.init(config.requestContext.request.method, config.requestContext.request.url ?? "(url unknown)");
         this.auth = auth2;
         this.requestContext = config.requestContext;
         const csrfProtectionConfig = typeof config.csrfProtection === "object" ? config.csrfProtection : {};
         const csrfProtectionEnabled = config.csrfProtection !== false;
-        if (!csrfProtectionEnabled || isValidRequestOrigin(this.requestContext.request, csrfProtectionConfig)) {
+        if (!csrfProtectionEnabled || this.isValidRequestOrigin(csrfProtectionConfig)) {
           this.storedSessionId = this.requestContext.sessionCookie ?? auth2.readSessionCookie(this.requestContext.request.headers.get("Cookie"));
         } else {
           this.storedSessionId = null;
         }
         this.bearerToken = auth2.readBearerToken(this.requestContext.request.headers.get("Authorization"));
       }
-    };
-    isValidRequestOrigin = (request, config) => {
-      const whitelist = ["GET", "HEAD", "OPTIONS", "TRACE"];
-      if (whitelist.some((val) => val === request.method.toUpperCase())) {
-        return true;
+      invalidate() {
+        this.validatePromise = null;
+        this.validateBearerTokenPromise = null;
       }
-      const requestOrigin = request.headers.get("Origin");
-      if (!requestOrigin)
-        return false;
-      if (!requestOrigin) {
-        debug.request.fail("No request origin available");
-        return false;
-      }
-      let host = null;
-      if (config.host !== void 0) {
-        host = config.host ?? null;
-      } else if (request.url !== null && request.url !== void 0) {
-        host = safeParseUrl(request.url)?.host ?? null;
-      } else {
-        host = request.headers.get(config.hostHeader ?? "Host");
-      }
-      if (host !== null && isAllowedOrigin(requestOrigin, host, config.allowedSubDomains ?? [])) {
-        debug.request.info("Valid request origin", requestOrigin);
-        return true;
-      }
-      debug.request.info("Invalid request origin", requestOrigin);
-      return false;
     };
     transformRequestContext = ({ request, setCookie: setCookie2, sessionCookie }) => {
       return {
@@ -8479,16 +8445,24 @@ var init_Toaster_svelte_svelte_type_style_lang = __esm({
         __publicField(this, "warning", (message, data) => {
           return this.create({ ...data, type: "warning", message });
         });
+        __publicField(this, "loading", (message, data) => {
+          return this.create({ ...data, type: "loading", message });
+        });
         __publicField(this, "promise", (promise, data) => {
           const id = this.create({ ...data, promise, type: "loading", message: data?.loading });
-          const p2 = promise instanceof Promise ? promise : promise();
-          p2.then((promiseData) => {
-            const message = typeof data?.success === "function" ? data.success(promiseData) : data?.success;
-            this.create({ id, type: "success", message });
-          }).catch((error3) => {
-            const message = typeof data?.error === "function" ? data.error(error3) : data?.error;
-            this.create({ id, type: "error", message });
-          });
+          const p2 = typeof promise === "function" ? promise() : promise;
+          if (data?.success) {
+            p2.then((promiseData) => {
+              const message = typeof data?.success === "function" ? data.success(promiseData) : data?.success;
+              this.create({ id, type: "success", message });
+            });
+          }
+          if (data?.error) {
+            p2.catch((error3) => {
+              const message = typeof data?.error === "function" ? data.error(error3) : data?.error;
+              this.create({ id, type: "error", message });
+            });
+          }
           return id;
         });
         // We can't provide the toast we just created as a prop as we didn't creat it yet, so we can create a default toast object, I just don't know how to use function in argument when calling()?
@@ -8510,7 +8484,8 @@ var init_Toaster_svelte_svelte_type_style_lang = __esm({
       custom: ToastState.custom,
       message: ToastState.message,
       promise: ToastState.promise,
-      dismiss: ToastState.dismiss
+      dismiss: ToastState.dismiss,
+      loading: ToastState.loading
     });
     useEffect = (subscribe2) => ({ subscribe: subscribe2 });
   }
@@ -8697,7 +8672,7 @@ var init_layout_svelte = __esm({
         "--z-index": toasts.length - index22,
         "--offset": `${removed ? offsetBeforeRemove : offset2}px`,
         "--initial-height": expandByDefault ? "auto" : `${initialHeight}px`
-      }))}${add_attribute("this", toastRef, 0)}>${closeButton && !toast.component ? `<button aria-label="Close toast"${add_attribute("data-disabled", disabled, 0)} data-close-button><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>` : ``} ${toast.component ? `${validate_component(toast.component || missing_component, "svelte:component").$$render($$result, {}, {}, {})}` : `${toast.title && typeof toast.title !== "string" ? `${validate_component(toast.title || missing_component, "svelte:component").$$render($$result, {}, {}, {})}` : `${toastType || toast.icon || toast.promise ? `<div data-icon="">${toast.promise ? `${validate_component(Loader, "Loader").$$render($$result, { visible: toastType === "loading" }, {}, {})}` : ``} ${toast.icon ? `${validate_component(toast.icon || missing_component, "svelte:component").$$render($$result, {}, {}, {})}` : `${validate_component(Icon, "Icon").$$render($$result, { type: toastType }, {}, {})}`}</div>` : ``} <div data-content=""><div data-title="">${escape(toast.title)}</div> ${toast.description ? `<div data-description=""${add_attribute("class", descriptionClass + toastDescriptionClass, 0)}>${escape(toast.description)}</div>` : ``}</div> ${toast.cancel ? `<button data-button data-cancel>${escape(toast.cancel.label)}</button>` : ``} ${toast.action ? `<button data-button="">${escape(toast.action.label)}</button>` : ``}`}`}</li>`;
+      }))}${add_attribute("this", toastRef, 0)}>${closeButton && !toast.component ? `<button aria-label="Close toast"${add_attribute("data-disabled", disabled, 0)} data-close-button><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>` : ``} ${toast.component ? `${validate_component(toast.component || missing_component, "svelte:component").$$render($$result, {}, {}, {})}` : `${toast.title && typeof toast.title !== "string" ? `${validate_component(toast.title || missing_component, "svelte:component").$$render($$result, {}, {}, {})}` : `${toastType || toast.icon || toast.promise ? `<div data-icon="">${toast.promise || toastType === "loading" ? `${validate_component(Loader, "Loader").$$render($$result, { visible: toastType === "loading" }, {}, {})}` : ``} ${toast.icon ? `${validate_component(toast.icon || missing_component, "svelte:component").$$render($$result, {}, {}, {})}` : `${validate_component(Icon, "Icon").$$render($$result, { type: toastType }, {}, {})}`}</div>` : ``} <div data-content=""><div data-title="">${escape(toast.title)}</div> ${toast.description ? `<div data-description=""${add_attribute("class", descriptionClass + toastDescriptionClass, 0)}>${escape(toast.description)}</div>` : ``}</div> ${toast.cancel ? `<button data-button data-cancel>${escape(toast.cancel.label)}</button>` : ``} ${toast.action ? `<button data-button="">${escape(toast.action.label)}</button>` : ``}`}`}</li>`;
     });
     css = {
       code: "[data-sonner-toaster]{position:fixed;width:var(--width);font-family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,\n      Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;--gray1:hsl(0, 0%, 99%);--gray2:hsl(0, 0%, 97.3%);--gray3:hsl(0, 0%, 95.1%);--gray4:hsl(0, 0%, 93%);--gray5:hsl(0, 0%, 90.9%);--gray6:hsl(0, 0%, 88.7%);--gray7:hsl(0, 0%, 85.8%);--gray8:hsl(0, 0%, 78%);--gray9:hsl(0, 0%, 56.1%);--gray10:hsl(0, 0%, 52.3%);--gray11:hsl(0, 0%, 43.5%);--gray12:hsl(0, 0%, 9%);--border-radius:6px;box-sizing:border-box;padding:0;margin:0;list-style:none;outline:none;z-index:999999999}[data-sonner-toaster][data-x-position='right']{right:max(var(--offset), env(safe-area-inset-right))}[data-sonner-toaster][data-x-position='left']{left:max(var(--offset), env(safe-area-inset-left))}[data-sonner-toaster][data-x-position='center']{left:50%;transform:translateX(-50%)}[data-sonner-toaster][data-y-position='top']{top:max(var(--offset), env(safe-area-inset-top))}[data-sonner-toaster][data-y-position='bottom']{bottom:max(var(--offset), env(safe-area-inset-bottom))}[data-sonner-toast]{--y:translateY(100%);--lift-amount:calc(var(--lift) * var(--gap));z-index:var(--z-index);position:absolute;opacity:0;transform:var(--y);touch-action:none;will-change:transform, opacity, height;-webkit-transition:transform 400ms, opacity 400ms, height 400ms, box-shadow 200ms;-moz-transition:transform 400ms, opacity 400ms, height 400ms, box-shadow 200ms;transition:transform 400ms, opacity 400ms, height 400ms, box-shadow 200ms;box-sizing:border-box;outline:none}[data-sonner-toast][data-styled='true']{padding:16px;background:var(--normal-bg);border:1px solid var(--normal-border);color:var(--normal-text);border-radius:var(--border-radius);box-shadow:0px 4px 12px rgba(0, 0, 0, 0.1);width:var(--width);font-size:13px;display:flex;align-items:center;gap:6px}[data-sonner-toast]:focus-visible{box-shadow:0px 4px 12px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.2)}[data-sonner-toast][data-y-position='top']{top:0;--y:translateY(-100%);--lift:1;--lift-amount:calc(1 * var(--gap))}[data-sonner-toast][data-y-position='bottom']{bottom:0;--y:translateY(100%);--lift:-1;--lift-amount:calc(var(--lift) * var(--gap))}[data-sonner-toast] [data-description]{font-weight:400;line-height:1.4;color:inherit}[data-sonner-toast] [data-title]{font-weight:500;line-height:1.5;color:inherit}[data-sonner-toast] [data-icon]{display:flex;height:16px;width:16px;position:relative;justify-content:flex-start;align-items:center;flex-shrink:0;margin-left:-3px;margin-right:4px}[data-sonner-toast][data-promise='true'] [data-icon]>svg{opacity:0;transform:scale(0.8);transform-origin:center;animation:sonner-fade-in 300ms ease forwards}[data-sonner-toast] [data-icon]>*{flex-shrink:0}[data-sonner-toast] [data-icon] svg{margin-left:-1px}[data-sonner-toast] [data-content]{display:flex;flex-direction:column;gap:2px}[data-sonner-toast] [data-button]{border-radius:4px;padding-left:8px;padding-right:8px;height:24px;font-size:12px;color:var(--normal-bg);background:var(--normal-text);margin-left:auto;border:none;cursor:pointer;outline:none;transition:opacity 400ms, box-shadow 200ms}[data-sonner-toast] [data-button]:focus-visible{box-shadow:0 0 0 2px rgba(0, 0, 0, 0.4)}[data-sonner-toast] [data-button]:first-of-type{margin-left:auto}[data-sonner-toast] [data-cancel]{color:var(--color);background:var(--border-color)}[data-sonner-toast] [data-close-button]{position:absolute;left:0;top:0;height:20px;width:20px;display:flex;justify-content:center;align-items:center;padding:0;background:var(--gray1);color:var(--gray12);border:1px solid var(--gray4);transform:translate(-35%, -35%);border-radius:50%;opacity:0;cursor:pointer;z-index:1;transition:opacity 100ms, background 200ms, border-color 200ms}[data-sonner-toast] [data-close-button]:focus-visible{box-shadow:0px 4px 12px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.2)}[data-sonner-toast] [data-disabled='true']{cursor:not-allowed}[data-sonner-toast]:hover [data-close-button]{opacity:1}[data-sonner-toast]:focus [data-close-button]{opacity:1}[data-sonner-toast]:focus-within [data-close-button]{opacity:1}[data-sonner-toast]:hover [data-close-button]:hover{background:var(--gray2);border-color:var(--gray5)}[data-sonner-toast][data-swiping='true']:before{content:'';position:absolute;left:0;right:0;height:100%}[data-sonner-toast][data-y-position='top'][data-swiping='true']:before{bottom:50%;transform:scaleY(3) translateY(50%)}[data-sonner-toast][data-y-position='bottom'][data-swiping='true']:before{top:50%;transform:scaleY(3) translateY(-50%)}[data-sonner-toast][data-swiping='false'][data-removed='true']:before{content:'';position:absolute;inset:0;transform:scaleY(2)}[data-sonner-toast]:after{content:'';position:absolute;left:0;height:calc(var(--gap) + 1px);bottom:100%;width:100%}[data-sonner-toast][data-mounted='true']{--y:translateY(0);opacity:1}[data-sonner-toast][data-expanded='false'][data-front='false']{--scale:var(--toasts-before) * 0.05 + 1;--y:translateY(calc(var(--lift-amount) * var(--toasts-before))) scale(calc(-1 * var(--scale)));height:var(--front-toast-height)}[data-sonner-toast]>*{transition:opacity 400ms}[data-sonner-toast][data-expanded='false'][data-front='false'][data-styled='true']>*{opacity:0}[data-sonner-toast][data-visible='false']{opacity:0;pointer-events:none}[data-sonner-toast][data-mounted='true'][data-expanded='true']{--y:translateY(calc(var(--lift) * var(--offset)));height:var(--initial-height)}[data-sonner-toast][data-removed='true'][data-front='true'][data-swipe-out='false']{--y:translateY(calc(var(--lift) * -100%));opacity:0}[data-sonner-toast][data-removed='true'][data-front='false'][data-swipe-out='false'][data-expanded='true']{--y:translateY(calc(var(--lift) * var(--offset) + var(--lift) * -100%));opacity:0}[data-sonner-toast][data-removed='true'][data-front='false'][data-swipe-out='false'][data-expanded='false']{--y:translateY(40%);opacity:0;transition:transform 500ms, opacity 200ms}[data-sonner-toast][data-removed='true'][data-front='false']:before{height:calc(var(--initial-height) + 20%)}[data-sonner-toast][data-swiping='true']{transform:var(--y) translateY(var(--swipe-amount, 0px));transition:none}[data-sonner-toast][data-swipe-out='true'][data-y-position='bottom'],[data-sonner-toast][data-swipe-out='true'][data-y-position='top']{animation:swipe-out 200ms ease-out forwards}@keyframes swipe-out{from{transform:translateY(calc(var(--lift) * var(--offset) + var(--swipe-amount)));opacity:1}to{transform:translateY(calc(var(--lift) * var(--offset) + var(--swipe-amount) + var(--lift) * -100%));opacity:0}}@media(max-width: 600px){[data-sonner-toaster]{position:fixed;--mobile-offset:16px;right:var(--mobile-offset);left:var(--mobile-offset);width:100%}[data-sonner-toaster] [data-sonner-toast]{left:0;right:0;width:calc(100% - 32px)}[data-sonner-toaster][data-x-position='left']{left:var(--mobile-offset)}[data-sonner-toaster][data-y-position='bottom']{bottom:20px}[data-sonner-toaster][data-y-position='top']{top:20px}[data-sonner-toaster][data-x-position='center']{left:var(--mobile-offset);right:var(--mobile-offset);transform:none}}[data-sonner-toaster][data-theme='light']{--normal-bg:#fff;--normal-border:var(--gray3);--normal-text:var(--gray12);--success-bg:hsl(143, 85%, 96%);--success-border:hsl(145, 92%, 91%);--success-text:hsl(140, 100%, 27%);--error-bg:hsl(359, 100%, 97%);--error-border:hsl(359, 100%, 94%);--error-text:hsl(360, 100%, 45%);--info-bg:hsl(210, 85%, 96%);--info-border:hsl(210, 92%, 91%);--info-text:hsl(210, 100%, 27%);--warning-bg:hsl(60, 85%, 96%);--warning-border:hsl(60, 92%, 91%);--warning-text:hsl(60, 100%, 19%)}[data-sonner-toaster][data-theme='light'] [data-sonner-toast][data-invert='true']{--normal-bg:#000;--normal-border:hsl(0, 0%, 20%);--normal-text:var(--gray1)}[data-sonner-toaster][data-theme='dark'] [data-sonner-toast][data-invert='true']{--normal-bg:#fff;--normal-border:var(--gray3);--normal-text:var(--gray12)}[data-sonner-toaster][data-theme='dark']{--normal-bg:#000;--normal-border:hsl(0, 0%, 20%);--normal-text:var(--gray1);--success-bg:hsl(150, 100%, 6%);--success-border:hsl(147, 100%, 12%);--success-text:hsl(150, 86%, 65%);--error-bg:hsl(358, 76%, 10%);--error-border:hsl(357, 89%, 16%);--error-text:hsl(358, 100%, 81%);--info-bg:hsl(210, 100%, 6%);--info-border:hsl(207, 100%, 12%);--info-text:hsl(210, 86%, 65%);--warning-bg:hsl(60, 100%, 6%);--warning-border:hsl(57, 100%, 12%);--warning-text:hsl(60, 86%, 65%)}[data-rich-colors='true'] [data-sonner-toast][data-type='success']{background:var(--success-bg);border-color:var(--success-border);color:var(--success-text)}[data-rich-colors='true'] [data-sonner-toast][data-type='success'] [data-close-button]{background:var(--success-bg);border-color:var(--success-border);color:var(--success-text)}[data-rich-colors='true'] [data-sonner-toast][data-type='error']{background:var(--error-bg);border-color:var(--error-border);color:var(--error-text)}[data-rich-colors='true'] [data-sonner-toast][data-type='error'] [data-close-button]{background:var(--error-bg);border-color:var(--error-border);color:var(--error-text)}[data-rich-colors='true'] [data-sonner-toast][data-type='info']{background:var(--info-bg);border-color:var(--info-border);color:var(--info-text)}[data-rich-colors='true'] [data-sonner-toast][data-type='info'] [data-close-button]{background:var(--info-bg);border-color:var(--info-border);color:var(--info-text)}[data-rich-colors='true'] [data-sonner-toast][data-type='warning']{background:var(--warning-bg);border-color:var(--warning-border);color:var(--warning-text)}[data-rich-colors='true'] [data-sonner-toast][data-type='warning'] [data-close-button]{background:var(--warning-bg);border-color:var(--warning-border);color:var(--warning-text)}.sonner-loading-wrapper{--size:16px;height:var(--size);width:var(--size);position:absolute;inset:0;z-index:10}.sonner-loading-wrapper[data-visible='false']{transform-origin:center;animation:sonner-fade-out 0.2s ease forwards}.sonner-spinner{position:relative;top:50%;left:50%;height:var(--size);width:var(--size)}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite;background:var(--gray11);border-radius:6px;height:8%;left:-10%;position:absolute;top:-3.9%;width:24%}.sonner-loading-bar:nth-child(1){animation-delay:-1.2s;transform:rotate(0.0001deg) translate(146%)}.sonner-loading-bar:nth-child(2){animation-delay:-1.1s;transform:rotate(30deg) translate(146%)}.sonner-loading-bar:nth-child(3){animation-delay:-1s;transform:rotate(60deg) translate(146%)}.sonner-loading-bar:nth-child(4){animation-delay:-0.9s;transform:rotate(90deg) translate(146%)}.sonner-loading-bar:nth-child(5){animation-delay:-0.8s;transform:rotate(120deg) translate(146%)}.sonner-loading-bar:nth-child(6){animation-delay:-0.7s;transform:rotate(150deg) translate(146%)}.sonner-loading-bar:nth-child(7){animation-delay:-0.6s;transform:rotate(180deg) translate(146%)}.sonner-loading-bar:nth-child(8){animation-delay:-0.5s;transform:rotate(210deg) translate(146%)}.sonner-loading-bar:nth-child(9){animation-delay:-0.4s;transform:rotate(240deg) translate(146%)}.sonner-loading-bar:nth-child(10){animation-delay:-0.3s;transform:rotate(270deg) translate(146%)}.sonner-loading-bar:nth-child(11){animation-delay:-0.2s;transform:rotate(300deg) translate(146%)}.sonner-loading-bar:nth-child(12){animation-delay:-0.1s;transform:rotate(330deg) translate(146%)}@keyframes sonner-fade-in{0%{opacity:0;transform:scale(0.8)}100%{opacity:1;transform:scale(1)}}@keyframes sonner-fade-out{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(0.8)}}@keyframes sonner-spin{0%{opacity:1}100%{opacity:0.15}}@media(prefers-reduced-motion){[data-sonner-toast],[data-sonner-toast]>*,.sonner-loading-bar{transition:none !important;animation:none !important}}",
@@ -8809,9 +8784,9 @@ var init__ = __esm({
   ".svelte-kit/output/server/nodes/0.js"() {
     index = 0;
     component = async () => component_cache ?? (component_cache = (await Promise.resolve().then(() => (init_layout_svelte(), layout_svelte_exports))).default);
-    imports = ["_app/immutable/nodes/0.c52d06c0.js", "_app/immutable/chunks/scheduler.e51e3a72.js", "_app/immutable/chunks/index.70313ae9.js", "_app/immutable/chunks/each.ed497e26.js", "_app/immutable/chunks/Toaster.svelte_svelte_type_style_lang.7ad7c14e.js"];
-    stylesheets = ["_app/immutable/assets/0.fb4e0c51.css", "_app/immutable/assets/Toaster.37b6ac62.css"];
-    fonts = ["_app/immutable/assets/fira-code-cyrillic-ext-400-normal.aeaf7f0a.woff2", "_app/immutable/assets/fira-code-cyrillic-ext-400-normal.96b1b870.woff", "_app/immutable/assets/fira-code-cyrillic-400-normal.dac6dde5.woff2", "_app/immutable/assets/fira-code-cyrillic-400-normal.b0cb6f39.woff", "_app/immutable/assets/fira-code-greek-ext-400-normal.9abd2774.woff2", "_app/immutable/assets/fira-code-greek-ext-400-normal.8c540835.woff", "_app/immutable/assets/fira-code-greek-400-normal.ab9177a1.woff2", "_app/immutable/assets/fira-code-greek-400-normal.f70ef159.woff", "_app/immutable/assets/fira-code-latin-ext-400-normal.5e162e63.woff2", "_app/immutable/assets/fira-code-latin-ext-400-normal.315dc11c.woff", "_app/immutable/assets/fira-code-latin-400-normal.2b407eb4.woff2", "_app/immutable/assets/fira-code-latin-400-normal.59bca7e3.woff", "_app/immutable/assets/inter-cyrillic-ext-400-normal.f7666a51.woff2", "_app/immutable/assets/inter-cyrillic-ext-400-normal.f83f176b.woff", "_app/immutable/assets/inter-cyrillic-400-normal.e9493683.woff2", "_app/immutable/assets/inter-cyrillic-400-normal.3a27cac9.woff", "_app/immutable/assets/inter-greek-ext-400-normal.d3e30cde.woff2", "_app/immutable/assets/inter-greek-ext-400-normal.37983db3.woff", "_app/immutable/assets/inter-greek-400-normal.2f2d421a.woff2", "_app/immutable/assets/inter-greek-400-normal.f8bb5355.woff", "_app/immutable/assets/inter-vietnamese-400-normal.5779ad5e.woff", "_app/immutable/assets/inter-latin-ext-400-normal.64a98f58.woff2", "_app/immutable/assets/inter-latin-ext-400-normal.495669c6.woff", "_app/immutable/assets/inter-latin-400-normal.0364d368.woff2", "_app/immutable/assets/inter-latin-400-normal.e3982e96.woff"];
+    imports = ["_app/immutable/nodes/0.6527b8d4.js", "_app/immutable/chunks/scheduler.f94034b4.js", "_app/immutable/chunks/index.10585fc1.js", "_app/immutable/chunks/each.5ff84e68.js", "_app/immutable/chunks/Toaster.svelte_svelte_type_style_lang.38ee3863.js"];
+    stylesheets = ["_app/immutable/assets/0.ce04bdef.css", "_app/immutable/assets/Toaster.37b6ac62.css"];
+    fonts = ["_app/immutable/assets/fira-code-cyrillic-ext-400-normal.8ff5fa04.woff2", "_app/immutable/assets/fira-code-cyrillic-ext-400-normal.65896fb9.woff", "_app/immutable/assets/fira-code-cyrillic-400-normal.fc77c60c.woff2", "_app/immutable/assets/fira-code-cyrillic-400-normal.10f2684d.woff", "_app/immutable/assets/fira-code-greek-ext-400-normal.c0eaff37.woff2", "_app/immutable/assets/fira-code-greek-ext-400-normal.dcfab88b.woff", "_app/immutable/assets/fira-code-greek-400-normal.c6dd645f.woff2", "_app/immutable/assets/fira-code-greek-400-normal.c3d451e7.woff", "_app/immutable/assets/fira-code-latin-ext-400-normal.22a754ed.woff2", "_app/immutable/assets/fira-code-latin-ext-400-normal.b19af5e8.woff", "_app/immutable/assets/fira-code-latin-400-normal.5246d691.woff2", "_app/immutable/assets/fira-code-latin-400-normal.6abd7d2d.woff", "_app/immutable/assets/inter-cyrillic-ext-400-normal.9508ee6d.woff2", "_app/immutable/assets/inter-cyrillic-ext-400-normal.91fac07b.woff", "_app/immutable/assets/inter-cyrillic-400-normal.b75a5bf9.woff2", "_app/immutable/assets/inter-cyrillic-400-normal.cfcdf014.woff", "_app/immutable/assets/inter-greek-ext-400-normal.6888cfd9.woff2", "_app/immutable/assets/inter-greek-ext-400-normal.a5fd4754.woff", "_app/immutable/assets/inter-greek-400-normal.4d906204.woff2", "_app/immutable/assets/inter-greek-400-normal.752eec51.woff", "_app/immutable/assets/inter-vietnamese-400-normal.9fd231a7.woff2", "_app/immutable/assets/inter-vietnamese-400-normal.5b57714a.woff", "_app/immutable/assets/inter-latin-ext-400-normal.56d25f40.woff2", "_app/immutable/assets/inter-latin-ext-400-normal.5578c98f.woff", "_app/immutable/assets/inter-latin-400-normal.2301bb03.woff2", "_app/immutable/assets/inter-latin-400-normal.86efb4c9.woff"];
   }
 });
 
@@ -8877,7 +8852,7 @@ var init__2 = __esm({
   ".svelte-kit/output/server/nodes/1.js"() {
     index2 = 1;
     component2 = async () => component_cache2 ?? (component_cache2 = (await Promise.resolve().then(() => (init_error_svelte(), error_svelte_exports))).default);
-    imports2 = ["_app/immutable/nodes/1.dcb1dc80.js", "_app/immutable/chunks/scheduler.e51e3a72.js", "_app/immutable/chunks/index.70313ae9.js", "_app/immutable/chunks/stores.ce80ffbe.js", "_app/immutable/chunks/singletons.7340f4a4.js", "_app/immutable/chunks/index.6b6238a6.js"];
+    imports2 = ["_app/immutable/nodes/1.9b8e2d2c.js", "_app/immutable/chunks/scheduler.f94034b4.js", "_app/immutable/chunks/index.10585fc1.js", "_app/immutable/chunks/stores.0de86162.js", "_app/immutable/chunks/singletons.f2f5efbb.js", "_app/immutable/chunks/index.317d8802.js"];
     stylesheets2 = [];
     fonts2 = [];
   }
@@ -18853,8 +18828,10 @@ var init_layout_svelte2 = __esm({
       });
       let $$settled;
       let $$rendered;
+      let previous_head = $$result.head;
       do {
         $$settled = true;
+        $$result.head = previous_head;
         $$rendered = `${validate_component(Root$5, "AlertDialog.Root").$$render(
           $$result,
           { open },
@@ -19037,8 +19014,10 @@ var init_layout_svelte2 = __esm({
       });
       let $$settled;
       let $$rendered;
+      let previous_head = $$result.head;
       do {
         $$settled = true;
+        $$result.head = previous_head;
         $$rendered = `${validate_component(Root$4, "Dialog.Root").$$render(
           $$result,
           { open },
@@ -19107,8 +19086,10 @@ var init_layout_svelte2 = __esm({
         $$bindings.items(items);
       let $$settled;
       let $$rendered;
+      let previous_head = $$result.head;
       do {
         $$settled = true;
+        $$result.head = previous_head;
         filteredItems = items.filter((item) => {
           if (item.type === "folder")
             return false;
@@ -19579,8 +19560,10 @@ var init_layout_svelte2 = __esm({
       let open = false;
       let $$settled;
       let $$rendered;
+      let previous_head = $$result.head;
       do {
         $$settled = true;
+        $$result.head = previous_head;
         $$rendered = `${validate_component(Root$1, "DropdownMenu.Root").$$render(
           $$result,
           { open },
@@ -19839,8 +19822,10 @@ var init_layout_svelte2 = __esm({
         $$bindings.items(items);
       let $$settled;
       let $$rendered;
+      let previous_head = $$result.head;
       do {
         $$settled = true;
+        $$result.head = previous_head;
         sortedItems = items.sort((a2, b) => {
           if (a2.type === "folder" && b.type === "file")
             return -1;
@@ -19928,7 +19913,7 @@ var init__3 = __esm({
     index3 = 2;
     component3 = async () => component_cache3 ?? (component_cache3 = (await Promise.resolve().then(() => (init_layout_svelte2(), layout_svelte_exports2))).default);
     server_id = "src/routes/(authed)/+layout.server.ts";
-    imports3 = ["_app/immutable/nodes/2.8cddec99.js", "_app/immutable/chunks/scheduler.e51e3a72.js", "_app/immutable/chunks/index.70313ae9.js", "_app/immutable/chunks/each.ed497e26.js", "_app/immutable/chunks/label.8ccf8a3d.js", "_app/immutable/chunks/parse.bee59afc.js", "_app/immutable/chunks/singletons.7340f4a4.js", "_app/immutable/chunks/index.6b6238a6.js", "_app/immutable/chunks/navigation.8597271a.js", "_app/immutable/chunks/stores.ce80ffbe.js", "_app/immutable/chunks/Toaster.svelte_svelte_type_style_lang.7ad7c14e.js", "_app/immutable/chunks/search.29e5a4b8.js"];
+    imports3 = ["_app/immutable/nodes/2.6115cdd9.js", "_app/immutable/chunks/scheduler.f94034b4.js", "_app/immutable/chunks/index.10585fc1.js", "_app/immutable/chunks/each.5ff84e68.js", "_app/immutable/chunks/label.763cc006.js", "_app/immutable/chunks/parse.bee59afc.js", "_app/immutable/chunks/singletons.f2f5efbb.js", "_app/immutable/chunks/index.317d8802.js", "_app/immutable/chunks/navigation.ab88e19d.js", "_app/immutable/chunks/stores.0de86162.js", "_app/immutable/chunks/Toaster.svelte_svelte_type_style_lang.38ee3863.js", "_app/immutable/chunks/search.4fb00a7b.js"];
     stylesheets3 = ["_app/immutable/assets/Toaster.37b6ac62.css"];
     fonts3 = [];
   }
@@ -20137,10 +20122,10 @@ var require_utils = __commonJS({
       return array2;
     }
     exports.hexToBytes = hexToBytes;
-    var nextTick2 = async () => {
+    var nextTick = async () => {
     };
-    exports.nextTick = nextTick2;
-    async function asyncLoop2(iters, tick2, cb) {
+    exports.nextTick = nextTick;
+    async function asyncLoop(iters, tick2, cb) {
       let ts2 = Date.now();
       for (let i2 = 0; i2 < iters; i2++) {
         cb(i2);
@@ -20151,7 +20136,7 @@ var require_utils = __commonJS({
         ts2 += diff;
       }
     }
-    exports.asyncLoop = asyncLoop2;
+    exports.asyncLoop = asyncLoop;
     function utf8ToBytes(str) {
       if (typeof str !== "string")
         throw new Error(`utf8ToBytes expected string, got ${typeof str}`);
@@ -20186,13 +20171,13 @@ var require_utils = __commonJS({
     };
     exports.Hash = Hash;
     var toStr = {}.toString;
-    function checkOpts2(defaults3, opts) {
+    function checkOpts(defaults3, opts) {
       if (opts !== void 0 && toStr.call(opts) !== "[object Object]")
         throw new Error("Options should be object or undefined");
       const merged = Object.assign(defaults3, opts);
       return merged;
     }
-    exports.checkOpts = checkOpts2;
+    exports.checkOpts = checkOpts;
     function wrapConstructor(hashCons) {
       const hashC = (msg) => hashCons().update(toBytes(msg)).digest();
       const tmp = hashCons();
@@ -20514,7 +20499,7 @@ var require_cuid2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/zod@3.22.2/node_modules/zod/lib/index.mjs
+// node_modules/.pnpm/zod@3.22.3/node_modules/zod/lib/index.mjs
 function setErrorMap(map2) {
   overrideErrorMap = map2;
 }
@@ -20645,7 +20630,7 @@ function createZodEnum(values, params) {
 }
 var util, objectUtil, ZodParsedType, getParsedType, ZodIssueCode, quotelessJson, ZodError, errorMap, overrideErrorMap, makeIssue, EMPTY_PATH, ParseStatus, INVALID, DIRTY, OK, isAborted, isDirty, isValid, isAsync, errorUtil, ParseInputLazyPath, handleResult, ZodType, cuidRegex, cuid2Regex, ulidRegex, uuidRegex, emailRegex, emojiRegex, ipv4Regex, ipv6Regex, datetimeRegex, ZodString, ZodNumber, ZodBigInt, ZodBoolean, ZodDate, ZodSymbol, ZodUndefined, ZodNull, ZodAny, ZodUnknown, ZodNever, ZodVoid, ZodArray, ZodObject, ZodUnion, getDiscriminator, ZodDiscriminatedUnion, ZodIntersection, ZodTuple, ZodRecord, ZodMap, ZodSet, ZodFunction, ZodLazy, ZodLiteral, ZodEnum, ZodNativeEnum, ZodPromise, ZodEffects, ZodOptional, ZodNullable, ZodDefault, ZodCatch, ZodNaN, BRAND, ZodBranded, ZodPipeline, ZodReadonly, custom, late, ZodFirstPartyTypeKind, instanceOfType, stringType, numberType, nanType, bigIntType, booleanType, dateType, symbolType, undefinedType, nullType, anyType, unknownType, neverType, voidType, arrayType, objectType, strictObjectType, unionType, discriminatedUnionType, intersectionType, tupleType, recordType, mapType, setType, functionType, lazyType, literalType, enumType, nativeEnumType, promiseType, effectsType, optionalType, nullableType, preprocessType, pipelineType, ostring, onumber, oboolean, coerce, NEVER, z;
 var init_lib = __esm({
-  "node_modules/.pnpm/zod@3.22.2/node_modules/zod/lib/index.mjs"() {
+  "node_modules/.pnpm/zod@3.22.3/node_modules/zod/lib/index.mjs"() {
     (function(util2) {
       util2.assertEqual = (val) => val;
       function assertIs(_arg) {
@@ -21353,7 +21338,7 @@ var init_lib = __esm({
     cuid2Regex = /^[a-z][a-z0-9]*$/;
     ulidRegex = /[0-9A-HJKMNP-TV-Z]{26}/;
     uuidRegex = /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/i;
-    emailRegex = /^([A-Z0-9_+-]+\.?)*[A-Z0-9_+-]@([A-Z0-9][A-Z0-9\-]*\.)+[A-Z]{2,}$/i;
+    emailRegex = /^(?!\.)(?!.*\.\.)([A-Z0-9_+-\.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9\-]*\.)+[A-Z]{2,}$/i;
     emojiRegex = /^(\p{Extended_Pictographic}|\p{Emoji_Component})+$/u;
     ipv4Regex = /^(((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2}))\.){3}((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2}))$/;
     ipv6Regex = /^(([a-f0-9]{1,4}:){7}|::([a-f0-9]{1,4}:){0,6}|([a-f0-9]{1,4}:){1}:([a-f0-9]{1,4}:){0,5}|([a-f0-9]{1,4}:){2}:([a-f0-9]{1,4}:){0,4}|([a-f0-9]{1,4}:){3}:([a-f0-9]{1,4}:){0,3}|([a-f0-9]{1,4}:){4}:([a-f0-9]{1,4}:){0,2}|([a-f0-9]{1,4}:){5}:([a-f0-9]{1,4}:){0,1})([a-f0-9]{1,4}|(((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2}))\.){3}((25[0-5])|(2[0-4][0-9])|(1[0-9]{2})|([0-9]{1,2})))$/;
@@ -24356,7 +24341,7 @@ var init__4 = __esm({
     index4 = 3;
     component4 = async () => component_cache4 ?? (component_cache4 = (await Promise.resolve().then(() => (init_page_svelte(), page_svelte_exports))).default);
     server_id2 = "src/routes/(authed)/+page.server.ts";
-    imports4 = ["_app/immutable/nodes/3.b03ab548.js", "_app/immutable/chunks/scheduler.e51e3a72.js", "_app/immutable/chunks/index.70313ae9.js", "_app/immutable/chunks/search.29e5a4b8.js", "_app/immutable/chunks/index.6b6238a6.js"];
+    imports4 = ["_app/immutable/nodes/3.58858a4e.js", "_app/immutable/chunks/scheduler.f94034b4.js", "_app/immutable/chunks/index.10585fc1.js", "_app/immutable/chunks/search.4fb00a7b.js", "_app/immutable/chunks/index.317d8802.js"];
     stylesheets4 = [];
     fonts4 = [];
   }
@@ -29441,9 +29426,9 @@ var init_dist6 = __esm({
   }
 });
 
-// node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/state/dist/index.js
+// node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/state/dist/index.js
 var init_dist7 = __esm({
-  "node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/state/dist/index.js"() {
+  "node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/state/dist/index.js"() {
     init_dist6();
   }
 });
@@ -31459,9 +31444,9 @@ var init_dist8 = __esm({
   }
 });
 
-// node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/view/dist/index.js
+// node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/view/dist/index.js
 var init_dist9 = __esm({
-  "node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/view/dist/index.js"() {
+  "node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/view/dist/index.js"() {
     init_dist8();
   }
 });
@@ -31663,23 +31648,23 @@ var init_dist10 = __esm({
   }
 });
 
-// node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/keymap/dist/index.js
+// node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/keymap/dist/index.js
 var init_dist11 = __esm({
-  "node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/keymap/dist/index.js"() {
+  "node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/keymap/dist/index.js"() {
     init_dist10();
   }
 });
 
-// node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/model/dist/index.js
+// node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/model/dist/index.js
 var init_dist12 = __esm({
-  "node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/model/dist/index.js"() {
+  "node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/model/dist/index.js"() {
     init_dist4();
   }
 });
 
-// node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/transform/dist/index.js
+// node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/transform/dist/index.js
 var init_dist13 = __esm({
-  "node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/transform/dist/index.js"() {
+  "node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/transform/dist/index.js"() {
     init_dist5();
   }
 });
@@ -32159,9 +32144,9 @@ var init_dist14 = __esm({
   }
 });
 
-// node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/commands/dist/index.js
+// node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/commands/dist/index.js
 var init_dist15 = __esm({
-  "node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/commands/dist/index.js"() {
+  "node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/commands/dist/index.js"() {
     init_dist14();
   }
 });
@@ -32287,14 +32272,14 @@ var init_dist16 = __esm({
   }
 });
 
-// node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/schema-list/dist/index.js
+// node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/schema-list/dist/index.js
 var init_dist17 = __esm({
-  "node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/schema-list/dist/index.js"() {
+  "node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/schema-list/dist/index.js"() {
     init_dist16();
   }
 });
 
-// node_modules/.pnpm/@tiptap+core@2.1.10_@tiptap+pm@2.1.10/node_modules/@tiptap/core/dist/index.js
+// node_modules/.pnpm/@tiptap+core@2.1.11_@tiptap+pm@2.1.11/node_modules/@tiptap/core/dist/index.js
 function createChainableState(config) {
   const { state, transaction } = config;
   let { selection } = transaction;
@@ -33099,8 +33084,8 @@ function wrappingInputRule(config) {
 function markPasteRule(config) {
   return new PasteRule({
     find: config.find,
-    handler: ({ state, range, match }) => {
-      const attributes = callOrReturn(config.getAttributes, void 0, match);
+    handler: ({ state, range, match, pasteEvent }) => {
+      const attributes = callOrReturn(config.getAttributes, void 0, match, pasteEvent);
       if (attributes === false || attributes === null) {
         return null;
       }
@@ -33134,7 +33119,7 @@ function markPasteRule(config) {
 }
 var CommandManager, InputRule, PasteRule, Extension, ClipboardTextSerializer, blur, clearContent, clearNodes, command, createParagraphNear2, cut, deleteCurrentNode, deleteNode, deleteRange2, deleteSelection2, enter, exitCode2, extendMarkRange, first, focus, forEach, insertContent, isFragment, insertContentAt, joinUp2, joinDown2, joinBackward2, joinForward2, joinItemBackward, joinItemForward, keyboardShortcut, lift3, liftEmptyBlock2, liftListItem2, newlineInCode2, resetAttributes, scrollIntoView, selectAll2, selectNodeBackward2, selectNodeForward2, selectParentNode2, selectTextblockEnd2, selectTextblockStart2, setContent, setMark, setMeta, setNode, setNodeSelection, setTextSelection, sinkListItem2, splitBlock2, splitListItem, joinListBackwards, joinListForwards, toggleList, toggleMark, toggleNode, toggleWrap, undoInputRule, unsetAllMarks, unsetMark, updateAttributes, wrapIn2, wrapInList2, commands, Commands, Editable, FocusEvents, Keymap, Tabindex, Mark2, Node3;
 var init_dist18 = __esm({
-  "node_modules/.pnpm/@tiptap+core@2.1.10_@tiptap+pm@2.1.10/node_modules/@tiptap/core/dist/index.js"() {
+  "node_modules/.pnpm/@tiptap+core@2.1.11_@tiptap+pm@2.1.11/node_modules/@tiptap/core/dist/index.js"() {
     init_dist7();
     init_dist9();
     init_dist11();
@@ -34641,9 +34626,9 @@ var init_dist19 = __esm({
   }
 });
 
-// node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/dropcursor/dist/index.js
+// node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/dropcursor/dist/index.js
 var init_dist20 = __esm({
-  "node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/dropcursor/dist/index.js"() {
+  "node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/dropcursor/dist/index.js"() {
     init_dist19();
   }
 });
@@ -34869,9 +34854,9 @@ var init_dist21 = __esm({
   }
 });
 
-// node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/gapcursor/dist/index.js
+// node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/gapcursor/dist/index.js
 var init_dist22 = __esm({
-  "node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/gapcursor/dist/index.js"() {
+  "node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/gapcursor/dist/index.js"() {
     init_dist21();
   }
 });
@@ -35431,17 +35416,17 @@ var init_dist24 = __esm({
   }
 });
 
-// node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/history/dist/index.js
+// node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/history/dist/index.js
 var init_dist25 = __esm({
-  "node_modules/.pnpm/@tiptap+pm@2.1.10/node_modules/@tiptap/pm/history/dist/index.js"() {
+  "node_modules/.pnpm/@tiptap+pm@2.1.11/node_modules/@tiptap/pm/history/dist/index.js"() {
     init_dist24();
   }
 });
 
-// node_modules/.pnpm/@tiptap+extension-code-block@2.1.10_@tiptap+core@2.1.10_@tiptap+pm@2.1.10/node_modules/@tiptap/extension-code-block/dist/index.js
+// node_modules/.pnpm/@tiptap+extension-code-block@2.1.10_@tiptap+core@2.1.11_@tiptap+pm@2.1.11/node_modules/@tiptap/extension-code-block/dist/index.js
 var backtickInputRegex, tildeInputRegex, CodeBlock;
 var init_dist26 = __esm({
-  "node_modules/.pnpm/@tiptap+extension-code-block@2.1.10_@tiptap+core@2.1.10_@tiptap+pm@2.1.10/node_modules/@tiptap/extension-code-block/dist/index.js"() {
+  "node_modules/.pnpm/@tiptap+extension-code-block@2.1.10_@tiptap+core@2.1.11_@tiptap+pm@2.1.11/node_modules/@tiptap/extension-code-block/dist/index.js"() {
     init_dist18();
     init_dist7();
     backtickInputRegex = /^```([a-z]+)?[\s\n]$/;
@@ -35629,7 +35614,7 @@ var init_dist26 = __esm({
   }
 });
 
-// node_modules/.pnpm/@tiptap+extension-code-block-lowlight@2.1.10_@tiptap+core@2.1.10_@tiptap+extension-code-block@2.1.10_@tiptap+pm@2.1.10/node_modules/@tiptap/extension-code-block-lowlight/dist/index.js
+// node_modules/.pnpm/@tiptap+extension-code-block-lowlight@2.1.11_@tiptap+core@2.1.11_@tiptap+extension-code-block@2.1.10_@tiptap+pm@2.1.11/node_modules/@tiptap/extension-code-block-lowlight/dist/index.js
 function deepFreeze(obj) {
   if (obj instanceof Map) {
     obj.clear = obj.delete = obj.set = function() {
@@ -36171,7 +36156,7 @@ function LowlightPlugin({ name: name3, lowlight, defaultLanguage }) {
 }
 var deepFreezeEs6, Response2, SPAN_CLOSE, emitsWrappingTags, scopeToCSSClass, HTMLRenderer, newNode, TokenTree, TokenTreeEmitter, BACKREF_RE, MATCH_NOTHING_RE, IDENT_RE, UNDERSCORE_IDENT_RE, NUMBER_RE, C_NUMBER_RE, BINARY_NUMBER_RE, RE_STARTERS_RE, SHEBANG, BACKSLASH_ESCAPE, APOS_STRING_MODE, QUOTE_STRING_MODE, PHRASAL_WORDS_MODE, COMMENT, C_LINE_COMMENT_MODE, C_BLOCK_COMMENT_MODE, HASH_COMMENT_MODE, NUMBER_MODE, C_NUMBER_MODE, BINARY_NUMBER_MODE, REGEXP_MODE, TITLE_MODE, UNDERSCORE_TITLE_MODE, METHOD_GUARD, END_SAME_AS_BEGIN, MODES, beforeMatchExt, COMMON_KEYWORDS, DEFAULT_KEYWORD_SCOPE, seenDeprecations, error2, warn, deprecated, MultiClassError, version, HTMLInjectionError, escape3, inherit, NO_MATCH, MAX_KEYWORD_HITS, HLJS, highlight, core, HighlightJS, CodeBlockLowlight;
 var init_dist27 = __esm({
-  "node_modules/.pnpm/@tiptap+extension-code-block-lowlight@2.1.10_@tiptap+core@2.1.10_@tiptap+extension-code-block@2.1.10_@tiptap+pm@2.1.10/node_modules/@tiptap/extension-code-block-lowlight/dist/index.js"() {
+  "node_modules/.pnpm/@tiptap+extension-code-block-lowlight@2.1.11_@tiptap+core@2.1.11_@tiptap+extension-code-block@2.1.10_@tiptap+pm@2.1.11/node_modules/@tiptap/extension-code-block-lowlight/dist/index.js"() {
     init_dist26();
     init_dist18();
     init_dist7();
@@ -38459,7 +38444,7 @@ var init_linkify_es = __esm({
   }
 });
 
-// node_modules/.pnpm/@tiptap+extension-link@2.1.10_@tiptap+core@2.1.10_@tiptap+pm@2.1.10/node_modules/@tiptap/extension-link/dist/index.js
+// node_modules/.pnpm/@tiptap+extension-link@2.1.11_@tiptap+core@2.1.11_@tiptap+pm@2.1.11/node_modules/@tiptap/extension-link/dist/index.js
 function autolink(options2) {
   return new Plugin({
     key: new PluginKey("autolink"),
@@ -38552,84 +38537,9 @@ function clickHandler(options2) {
     }
   });
 }
-function pasteHandler(options2) {
-  return new Plugin({
-    key: new PluginKey("handlePasteLink"),
-    props: {
-      handlePaste: (view, event, slice2) => {
-        var _a178, _b10;
-        const { state } = view;
-        const { selection } = state;
-        if (state.doc.resolve(selection.from).parent.type.spec.code) {
-          return false;
-        }
-        let textContent = "";
-        slice2.content.forEach((node) => {
-          textContent += node.textContent;
-        });
-        let isAlreadyLink = false;
-        slice2.content.descendants((node) => {
-          if (node.marks.some((mark) => mark.type.name === options2.type.name)) {
-            isAlreadyLink = true;
-          }
-        });
-        if (isAlreadyLink) {
-          return;
-        }
-        const link = find(textContent).find((item) => item.isLink && item.value === textContent);
-        if (!selection.empty && options2.linkOnPaste) {
-          const pastedLink = (link === null || link === void 0 ? void 0 : link.href) || null;
-          if (pastedLink) {
-            options2.editor.commands.setMark(options2.type, { href: pastedLink });
-            return true;
-          }
-        }
-        const firstChildIsText = ((_a178 = slice2.content.firstChild) === null || _a178 === void 0 ? void 0 : _a178.type.name) === "text";
-        const firstChildContainsLinkMark = (_b10 = slice2.content.firstChild) === null || _b10 === void 0 ? void 0 : _b10.marks.some((mark) => mark.type.name === options2.type.name);
-        if (firstChildIsText && firstChildContainsLinkMark || !options2.linkOnPaste) {
-          return false;
-        }
-        if (link && selection.empty) {
-          options2.editor.commands.insertContent(`<a href="${link.href}">${link.href}</a>`);
-          return true;
-        }
-        const { tr: tr2 } = state;
-        let deleteOnly = false;
-        if (!selection.empty) {
-          deleteOnly = true;
-          tr2.delete(selection.from, selection.to);
-        }
-        let currentPos = selection.from;
-        let fragmentLinks = [];
-        slice2.content.forEach((node) => {
-          fragmentLinks = find(node.textContent);
-          tr2.insert(currentPos - 1, node);
-          if (fragmentLinks.length > 0) {
-            deleteOnly = false;
-            fragmentLinks.forEach((fragmentLink) => {
-              const linkStart = currentPos + fragmentLink.start;
-              const linkEnd = currentPos + fragmentLink.end;
-              const hasMark = tr2.doc.rangeHasMark(linkStart, linkEnd, options2.type);
-              if (!hasMark) {
-                tr2.addMark(linkStart, linkEnd, options2.type.create({ href: fragmentLink.href }));
-              }
-            });
-          }
-          currentPos += node.nodeSize;
-        });
-        const hasFragmentLinks = fragmentLinks.length > 0;
-        if (tr2.docChanged && !deleteOnly && hasFragmentLinks) {
-          options2.editor.view.dispatch(tr2);
-          return true;
-        }
-        return false;
-      }
-    }
-  });
-}
 var Link;
 var init_dist28 = __esm({
-  "node_modules/.pnpm/@tiptap+extension-link@2.1.10_@tiptap+core@2.1.10_@tiptap+pm@2.1.10/node_modules/@tiptap/extension-link/dist/index.js"() {
+  "node_modules/.pnpm/@tiptap+extension-link@2.1.11_@tiptap+core@2.1.11_@tiptap+pm@2.1.11/node_modules/@tiptap/extension-link/dist/index.js"() {
     init_dist18();
     init_linkify_es();
     init_dist7();
@@ -38701,6 +38611,37 @@ var init_dist28 = __esm({
           }
         };
       },
+      addPasteRules() {
+        return [
+          markPasteRule({
+            find: (text3) => find(text3).filter((link) => {
+              if (this.options.validate) {
+                return this.options.validate(link.value);
+              }
+              return true;
+            }).filter((link) => link.isLink).map((link) => ({
+              text: link.value,
+              index: link.start,
+              data: link
+            })),
+            type: this.type,
+            getAttributes: (match, pasteEvent) => {
+              var _a178, _b10;
+              const html = (_a178 = pasteEvent.clipboardData) === null || _a178 === void 0 ? void 0 : _a178.getData("text/html");
+              const hrefRegex = /href="([^"]*)"/;
+              const existingLink = html === null || html === void 0 ? void 0 : html.match(hrefRegex);
+              if (existingLink) {
+                return {
+                  href: existingLink[1]
+                };
+              }
+              return {
+                href: (_b10 = match.data) === null || _b10 === void 0 ? void 0 : _b10.href
+              };
+            }
+          })
+        ];
+      },
       addProseMirrorPlugins() {
         const plugins = [];
         if (this.options.autolink) {
@@ -38714,11 +38655,6 @@ var init_dist28 = __esm({
             type: this.type
           }));
         }
-        plugins.push(pasteHandler({
-          editor: this.editor,
-          type: this.type,
-          linkOnPaste: this.options.linkOnPaste
-        }));
         return plugins;
       }
     });
@@ -44228,7 +44164,7 @@ var init__5 = __esm({
     index5 = 4;
     component5 = async () => component_cache5 ?? (component_cache5 = (await Promise.resolve().then(() => (init_page_svelte2(), page_svelte_exports2))).default);
     server_id3 = "src/routes/(authed)/[itemId]/+page.server.ts";
-    imports5 = ["_app/immutable/nodes/4.f070bdb9.js", "_app/immutable/chunks/scheduler.e51e3a72.js", "_app/immutable/chunks/index.70313ae9.js", "_app/immutable/chunks/navigation.8597271a.js", "_app/immutable/chunks/singletons.7340f4a4.js", "_app/immutable/chunks/index.6b6238a6.js", "_app/immutable/chunks/Toaster.svelte_svelte_type_style_lang.7ad7c14e.js", "_app/immutable/chunks/stores.ce80ffbe.js"];
+    imports5 = ["_app/immutable/nodes/4.64ef3f2c.js", "_app/immutable/chunks/scheduler.f94034b4.js", "_app/immutable/chunks/index.10585fc1.js", "_app/immutable/chunks/navigation.ab88e19d.js", "_app/immutable/chunks/singletons.f2f5efbb.js", "_app/immutable/chunks/index.317d8802.js", "_app/immutable/chunks/Toaster.svelte_svelte_type_style_lang.38ee3863.js", "_app/immutable/chunks/stores.0de86162.js"];
     stylesheets5 = ["_app/immutable/assets/4.ec81a1b1.css", "_app/immutable/assets/Toaster.37b6ac62.css"];
     fonts5 = [];
   }
@@ -44358,7 +44294,7 @@ var init__6 = __esm({
     index6 = 5;
     component6 = async () => component_cache6 ?? (component_cache6 = (await Promise.resolve().then(() => (init_page_svelte3(), page_svelte_exports3))).default);
     server_id4 = "src/routes/(unauthed)/signin/+page.server.ts";
-    imports6 = ["_app/immutable/nodes/5.930cbc99.js", "_app/immutable/chunks/scheduler.e51e3a72.js", "_app/immutable/chunks/index.70313ae9.js", "_app/immutable/chunks/label.8ccf8a3d.js", "_app/immutable/chunks/parse.bee59afc.js", "_app/immutable/chunks/singletons.7340f4a4.js", "_app/immutable/chunks/index.6b6238a6.js", "_app/immutable/chunks/navigation.8597271a.js", "_app/immutable/chunks/Toaster.svelte_svelte_type_style_lang.7ad7c14e.js"];
+    imports6 = ["_app/immutable/nodes/5.4f27b29f.js", "_app/immutable/chunks/scheduler.f94034b4.js", "_app/immutable/chunks/index.10585fc1.js", "_app/immutable/chunks/label.763cc006.js", "_app/immutable/chunks/parse.bee59afc.js", "_app/immutable/chunks/singletons.f2f5efbb.js", "_app/immutable/chunks/index.317d8802.js", "_app/immutable/chunks/navigation.ab88e19d.js", "_app/immutable/chunks/Toaster.svelte_svelte_type_style_lang.38ee3863.js"];
     stylesheets6 = ["_app/immutable/assets/Toaster.37b6ac62.css"];
     fonts6 = [];
   }
@@ -44499,7 +44435,7 @@ var init__7 = __esm({
     index7 = 6;
     component7 = async () => component_cache7 ?? (component_cache7 = (await Promise.resolve().then(() => (init_page_svelte4(), page_svelte_exports4))).default);
     server_id5 = "src/routes/(unauthed)/signup/+page.server.ts";
-    imports7 = ["_app/immutable/nodes/6.8aadffc8.js", "_app/immutable/chunks/scheduler.e51e3a72.js", "_app/immutable/chunks/index.70313ae9.js", "_app/immutable/chunks/label.8ccf8a3d.js", "_app/immutable/chunks/parse.bee59afc.js", "_app/immutable/chunks/singletons.7340f4a4.js", "_app/immutable/chunks/index.6b6238a6.js", "_app/immutable/chunks/navigation.8597271a.js", "_app/immutable/chunks/Toaster.svelte_svelte_type_style_lang.7ad7c14e.js"];
+    imports7 = ["_app/immutable/nodes/6.5743346d.js", "_app/immutable/chunks/scheduler.f94034b4.js", "_app/immutable/chunks/index.10585fc1.js", "_app/immutable/chunks/label.763cc006.js", "_app/immutable/chunks/parse.bee59afc.js", "_app/immutable/chunks/singletons.f2f5efbb.js", "_app/immutable/chunks/index.317d8802.js", "_app/immutable/chunks/navigation.ab88e19d.js", "_app/immutable/chunks/Toaster.svelte_svelte_type_style_lang.38ee3863.js"];
     stylesheets7 = ["_app/immutable/assets/Toaster.37b6ac62.css"];
     fonts7 = [];
   }
@@ -44739,8 +44675,10 @@ var Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     $$bindings.data_2(data_2);
   let $$settled;
   let $$rendered;
+  let previous_head = $$result.head;
   do {
     $$settled = true;
+    $$result.head = previous_head;
     {
       stores.page.set(page2);
     }
@@ -44882,7 +44820,7 @@ var options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "wfcnrw"
+  version_hash: "v0iumz"
 };
 function get_hooks() {
   return Promise.resolve().then(() => (init_hooks_server(), hooks_server_exports));
@@ -44954,6 +44892,7 @@ function is_form_content_type(request) {
 function exec(match, params, matchers) {
   const result = {};
   const values = match.slice(1);
+  const values_needing_match = values.filter((value) => value !== void 0);
   let buffered = 0;
   for (let i2 = 0; i2 < params.length; i2 += 1) {
     const param2 = params[i2];
@@ -44972,6 +44911,9 @@ function exec(match, params, matchers) {
       const next_param = params[i2 + 1];
       const next_value = values[i2 + 1];
       if (next_param && !next_param.rest && next_param.optional && next_value && param2.chained) {
+        buffered = 0;
+      }
+      if (!next_param && !next_value && Object.keys(result).length === values_needing_match.length) {
         buffered = 0;
       }
       continue;
@@ -46918,6 +46860,14 @@ async function respond_with_error({
   error: error22,
   resolve_opts
 }) {
+  if (event.request.headers.get("x-sveltekit-error")) {
+    return static_error_page(
+      options2,
+      status,
+      /** @type {Error} */
+      error22.message
+    );
+  }
   const fetched = [];
   try {
     const branch = [];
@@ -48326,6 +48276,13 @@ async function respond(request, options2, manifest2, state) {
         }
         return response;
       }
+      if (state.error && event2.isSubRequest) {
+        return await fetch(request, {
+          headers: {
+            "x-sveltekit-error": "true"
+          }
+        });
+      }
       if (state.error) {
         return text2("Internal Server Error", {
           status: 500
@@ -48448,7 +48405,7 @@ var manifest = (() => {
     assets: /* @__PURE__ */ new Set(["favicon.png"]),
     mimeTypes: { ".png": "image/png" },
     _: {
-      client: { "start": "_app/immutable/entry/start.95c0651b.js", "app": "_app/immutable/entry/app.4da7fb0c.js", "imports": ["_app/immutable/entry/start.95c0651b.js", "_app/immutable/chunks/scheduler.e51e3a72.js", "_app/immutable/chunks/singletons.7340f4a4.js", "_app/immutable/chunks/index.6b6238a6.js", "_app/immutable/chunks/parse.bee59afc.js", "_app/immutable/entry/app.4da7fb0c.js", "_app/immutable/chunks/scheduler.e51e3a72.js", "_app/immutable/chunks/index.70313ae9.js"], "stylesheets": [], "fonts": [] },
+      client: { "start": "_app/immutable/entry/start.af095b2f.js", "app": "_app/immutable/entry/app.f117b9e6.js", "imports": ["_app/immutable/entry/start.af095b2f.js", "_app/immutable/chunks/scheduler.f94034b4.js", "_app/immutable/chunks/singletons.f2f5efbb.js", "_app/immutable/chunks/index.317d8802.js", "_app/immutable/chunks/parse.bee59afc.js", "_app/immutable/entry/app.f117b9e6.js", "_app/immutable/chunks/scheduler.f94034b4.js", "_app/immutable/chunks/index.10585fc1.js"], "stylesheets": [], "fonts": [] },
       nodes: [
         __memo(() => Promise.resolve().then(() => (init__(), __exports))),
         __memo(() => Promise.resolve().then(() => (init__2(), __exports2))),
