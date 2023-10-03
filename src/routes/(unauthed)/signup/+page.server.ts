@@ -29,7 +29,7 @@ export const actions: Actions = {
 
 		if (!parsedBody.success)
 			return fail(400, {
-				message: parsedBody.error.errors[0].message ?? 'Unknown error'
+				message: parsedBody.error.errors[0].message ?? 'Invalid request'
 			});
 
 		try {

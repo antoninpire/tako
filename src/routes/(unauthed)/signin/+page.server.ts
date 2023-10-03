@@ -1,6 +1,7 @@
 import { auth } from '$lib/server/lucia';
 import { fail, redirect, type Actions, type ServerLoad } from '@sveltejs/kit';
 import { LuciaError } from 'lucia';
+import { z } from 'zod';
 
 export const load: ServerLoad = async ({ locals }) => {
 	const session = await locals.auth.validate();
@@ -8,24 +9,35 @@ export const load: ServerLoad = async ({ locals }) => {
 	return {};
 };
 
+const schema = z.object({
+	email: z.string().email(),
+	password: z.string().min(1, 'Password cannot be empty')
+});
+
 export const actions: Actions = {
 	default: async ({ request, locals }) => {
 		const formData = await request.formData();
 		const email = formData.get('email');
 		const password = formData.get('password');
-		// basic check
-		if (typeof email !== 'string' || email.length < 1 || email.length > 31) {
+
+		const body = {
+			email,
+			password
+		};
+
+		const parsedBody = schema.safeParse(body);
+
+		if (!parsedBody.success)
 			return fail(400, {
-				message: 'Invalid email'
+				message: parsedBody.error.errors[0].message ?? 'Invalid request'
 			});
-		}
-		if (typeof password !== 'string' || password.length < 1 || password.length > 255) {
-			return fail(400, {
-				message: 'Invalid password'
-			});
-		}
+
 		try {
-			const key = await auth.useKey('email', email.toLowerCase(), password);
+			const key = await auth.useKey(
+				'email',
+				parsedBody.data.email.toLowerCase(),
+				parsedBody.data.password
+			);
 			const session = await auth.createSession({
 				userId: key.userId,
 				attributes: {}

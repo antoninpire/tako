@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { applyAction, enhance } from '$app/forms';
+	import GithubPill from '$lib/components/GithubPill.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Input from '$lib/components/ui/input/input.svelte';
 	import Label from '$lib/components/ui/label/label.svelte';
@@ -21,7 +22,7 @@
 		}}
 		class="flex flex-col gap-5"
 	>
-		<h1 class="text-2xl text-center font-bold">Sign in to your account</h1>
+		<h1 class="text-2xl text-center font-bold mb-5">Sign in to your account</h1>
 		<fieldset class="flex flex-col gap-2 min-w-[400px]">
 			<Label class="font-semibold" for="email">Email</Label>
 			<Input id="email" name="email" type="email" class="border-neutral-700" />
@@ -51,6 +52,7 @@
 		<p class="text-center text-sm mt-5">
 			Don't have an account? <a href="/signup" class="text-purple-500">Create an account</a>
 		</p>
+		<GithubPill />
 	</form>
 </div>
 
