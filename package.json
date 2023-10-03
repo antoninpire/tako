@@ -19,6 +19,7 @@
 		"@paralleldrive/cuid2": "^2.2.2",
 		"@planetscale/database": "^1.11.0",
 		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/adapter-vercel": "^3.0.3",
 		"@sveltejs/kit": "^1.20.4",
 		"@tiptap/core": "^2.1.10",
 		"@tiptap/extension-code-block-lowlight": "^2.1.10",
