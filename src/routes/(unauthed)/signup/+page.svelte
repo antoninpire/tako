@@ -26,7 +26,7 @@
 		class="flex flex-col gap-5"
 	>
 		<h1 class="text-2xl text-center font-bold mb-5">Create an account</h1>
-		<fieldset class="flex flex-col gap-2 min-w-[400px]">
+		<fieldset class="flex flex-col gap-2 md:min-w-[400px] min-w-[85vw]">
 			<Label class="font-semibold" for="email">Email</Label>
 			<Input id="email" name="email" type="email" class="border-neutral-700" />
 		</fieldset>
