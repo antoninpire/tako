@@ -58,11 +58,11 @@ h6 {
 }
 
 ul {
-	@apply block list-disc mb-[1em] ml-0 mr-0 pl-[15px] md:pl-[40px];
+	@apply block list-disc mb-[0.35em] ml-0 mr-0 pl-[15px] md:pl-[40px];
 }
 
 ul[data-type='taskList'] {
-	@apply mt-[0.5em];
+	@apply mt-[0.35em];
 }
 
 ul[data-type='taskList'] p {
@@ -74,7 +74,7 @@ ul[data-type='taskList'] li {
 }
 
 ul[data-type='taskList'] li > label {
-	@apply flex-[0_0_auto] mr-[0.5rem] select-none;
+	@apply flex-[0_0_auto] mr-[0.3rem] select-none;
 }
 
 ul[data-type='taskList'] li > div {
