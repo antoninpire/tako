@@ -1,84 +1,68 @@
-import { relations, type InferSelectModel } from 'drizzle-orm';
-import {
-	bigint,
-	index,
-	mysqlEnum,
-	mysqlTableCreator,
-	text,
-	timestamp,
-	varchar
-} from 'drizzle-orm/mysql-core';
+import { relations, sql, type InferSelectModel } from 'drizzle-orm';
+import { blob, index, integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
-/**
- * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
- * database instance for multiple projects.
- *
- * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
- */
-export const mysqlTable = mysqlTableCreator((name) => `tako_${name}`);
-
-export const user = mysqlTable('auth_user', {
-	id: varchar('id', {
+export const user = sqliteTable('auth_user', {
+	id: text('id', {
 		length: 15 // change this when using custom user ids
 	}).primaryKey(),
-	email: varchar('email', { length: 128 }).unique()
+	email: text('email', { length: 128 }).unique()
 	// other user attributes
 });
 
-export const key = mysqlTable('user_key', {
-	id: varchar('id', {
+export const key = sqliteTable('user_key', {
+	id: text('id', {
 		length: 255
 	}).primaryKey(),
-	userId: varchar('user_id', {
+	userId: text('user_id', {
 		length: 15
 	}).notNull(),
-	hashedPassword: varchar('hashed_password', {
+	hashedPassword: text('hashed_password', {
 		length: 255
 	})
 });
 
-export const session = mysqlTable('user_session', {
-	id: varchar('id', {
+export const session = sqliteTable('user_session', {
+	id: text('id', {
 		length: 128
 	}).primaryKey(),
-	userId: varchar('user_id', {
+	userId: text('user_id', {
 		length: 15
 	}).notNull(),
-	activeExpires: bigint('active_expires', {
-		mode: 'number'
+	activeExpires: blob('active_expires', {
+		mode: 'bigint'
 	}).notNull(),
-	idleExpires: bigint('idle_expires', {
-		mode: 'number'
+	idleExpires: blob('idle_expires', {
+		mode: 'bigint'
 	}).notNull(),
-	email: varchar('email', { length: 128 })
+	email: text('email', { length: 128 })
 });
 
-export const itemsTable = mysqlTable(
+export const itemsTable = sqliteTable(
 	'item',
 	{
-		id: varchar('id', {
+		id: text('id', {
 			length: 48
 		}).primaryKey(),
-		userId: varchar('user_id', {
+		userId: text('user_id', {
 			length: 15
 		}).notNull(),
-		name: varchar('name', {
+		name: text('name', {
 			length: 75
 		}).notNull(),
-		type: mysqlEnum('type', ['folder', 'file']).notNull(),
-		parentId: varchar('parent_id', {
+		type: text('type', { enum: ['folder', 'file'] }).notNull(),
+		parentId: text('parent_id', {
 			length: 48
 		}),
-		createdAt: timestamp('created_at')
+		createdAt: integer('created_at', { mode: 'timestamp' })
 			.notNull()
-			.$defaultFn(() => new Date()),
-		updatedAt: timestamp('updated_at')
+			.default(sql`(strftime('%s', 'now'))`),
+		updatedAt: integer('updated_at', { mode: 'timestamp' })
 			.notNull()
-			.$defaultFn(() => new Date())
+			.default(sql`(strftime('%s', 'now'))`)
 	},
 	(table) => ({
-		userIdx: index('user_idx').on(table.userId),
-		parentIdx: index('parent_idx').on(table.parentId)
+		userIdx: index('item_user_idx').on(table.userId),
+		parentIdx: index('item_parent_idx').on(table.parentId)
 	})
 );
 export type Item = InferSelectModel<typeof itemsTable>;
@@ -90,19 +74,19 @@ export const itemsRelations = relations(itemsTable, ({ one }) => ({
 	})
 }));
 
-export const filesTable = mysqlTable(
+export const filesTable = sqliteTable(
 	'file',
 	{
-		id: varchar('id', {
+		id: text('id', {
 			length: 48
 		}).primaryKey(),
-		itemId: varchar('item_id', {
+		itemId: text('item_id', {
 			length: 48
 		}).notNull(),
 		content: text('content').notNull()
 	},
 	(table) => ({
-		itemIdx: index('item_idx').on(table.itemId)
+		itemIdx: index('file_item_idx').on(table.itemId)
 	})
 );
 

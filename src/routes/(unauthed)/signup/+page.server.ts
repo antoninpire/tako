@@ -1,5 +1,4 @@
 import { auth } from '$lib/server/lucia';
-import { DatabaseError } from '@planetscale/database';
 import { fail, redirect, type Actions, type ServerLoad } from '@sveltejs/kit';
 import { z } from 'zod';
 
@@ -49,11 +48,11 @@ export const actions: Actions = {
 			});
 			locals.auth.setSession(session);
 		} catch (e) {
-			if (e instanceof DatabaseError) {
-				return fail(403, {
-					message: 'Email already in use'
-				});
-			}
+			// if (e instanceof DatabaseError) {
+			// 	return fail(403, {
+			// 		message: 'Email already in use'
+			// 	});
+			// }
 
 			return fail(500, {
 				message: 'An unknown error occurred'
